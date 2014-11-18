@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>Pagina</h1>
+<form method="post">
+    <p><input type="text" name="name" id="name"/></p>
+    <p><button type="button" value="send" name="send" id="send">Send</button></p>
+</form>
+<script src="Server.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", init);
+
+    function init(){
+        var btn = document.getElementById("send");
+        btn.addEventListener("click", save);
+    }
+
+    function save(){
+        var name = document.getElementById("name");
+        if(name.value == ""){
+            name.className = "error";
+        }
+        else{
+            //console.log(name);
+            AddToList(name);
+        }
+    }
+</script>
+</body>
+</html>
