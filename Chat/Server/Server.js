@@ -1,38 +1,18 @@
-/**
- * Created by alisio on 8/11/2014.
+﻿/**
+ * Created by alisio on 18/11/2014.
  */
-var net = require('net');
-var path = require('path');
-var express = require('express');
-//var io = require('socket.io');
-var app = express();
-var http = require('http').createServer(app);
-app.use(express.static(path.join(__dirname, '../')));
-http.listen(80);
-var server = net.Server();
-var ip = 'localhost';
-var port = 6600;
-server.listen(port, ip);
+var port = 4000;
+var ip = "192.168.1.2";
+var requestHandlers = require("./requestHandlers.js");
+var router = require("./router.js")
+var socketHandlers = require("./socketHandlers.js");
 
-server.on('connection', function (socket) {
-    socket.write('yooo client');
+//1. static Server activeren
+var staticServer = require("./staticServer.js");
 
-    socket.on('data', function (data) {
-        console.log('data from client: ' + data);
-    });
-});
+//2. Alle nodige params : routinghandlers definiëren
+var handlers = {}
+handlers["/"] = requestHandlers.root;
 
-//client
-setTimeout(function () {
-    var connection = net.connect(port, ip, function () {
-        connection.write('Hi server');
 
-        setInterval(function () {
-            connection.write('ping');
-        }, 1000 * 2);
-
-        connection.on('data', function (data) {
-            console.log('data from the server: ' + data);
-        });
-    });
-}, 1000 * 2)
+staticServer.init( router , handlers ,port, socketHandlers);
