@@ -1,0 +1,8 @@
+users
+id, naam, rank, password, score
+
+rank
+id, naam, admin
+
+questions
+id, question, option1, option2, option3, option4,correct, img
