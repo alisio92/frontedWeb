@@ -26,7 +26,7 @@ var staticServer = (function () {
             function handler(req, res) {
                 //1. routing ophalen
                 var uri = url.parse(req.url).pathname;
-                //console.log("routing ophalen voor uri : " + uri)
+                console.log("routing ophalen voor uri : " + uri)
 
                 router.getRoute(handlers, uri, req , res);
             }
@@ -43,7 +43,7 @@ var staticServer = (function () {
     };
 
     var init = function (router, handlers , httpPort, socketHandlers) {
-        //console.log("server running on port :", httpPort , socketHandlers);
+        console.log("server running on port :", httpPort , socketHandlers);
         httpListen(router, handlers, httpPort, socketHandlers);
     };
 

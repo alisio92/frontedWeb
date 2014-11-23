@@ -1,7 +1,7 @@
 /**
  * Created by alisio on 22/11/2014.
  */
-var indexHTML = './../client/index.html';
+var indexHTML = "./../client/index.html";
 var path = require("path"),
     fs = require("fs"),
     url = require('url');

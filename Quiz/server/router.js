@@ -1,7 +1,7 @@
 /**
  * Created by alisio on 22/11/2014.
  */
-var indexHTML = './../client/index.html';
+var indexHTML = "./../client/index.html";
 var requestHandlers = require("./requestHandlers"),
     path = require('path');
 
@@ -21,7 +21,7 @@ var getRoute = function (handlers, uri, request , response) {
     pathname = "/" + url.split("?")[0];
 
     if ((typeof localMaps[ext] !== 'undefined' && url !="favicon.ico" )) {
-        //console.log("file loading " + uri);
+        console.log("file loading " + uri);
         requestHandlers.readFile(localMaps[ext] + url, response);
     } else if (typeof (handlers[pathname]) === "function") {
         handlers[pathname](request, response);
