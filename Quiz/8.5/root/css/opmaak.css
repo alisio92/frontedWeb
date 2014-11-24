@@ -1,0 +1,64 @@
+body {
+  padding: 10px;
+}
+header {
+  padding-top: 10px;
+  height: 40px;
+  background-color: #dddddd;
+  margin-bottom: 10px;
+}
+nav {
+  float: right;
+}
+nav > ul > li {
+  float: left;
+  list-style-type: none;
+  width: 100px;
+  color: #0099CC;
+}
+nav > ul > li > a {
+  color: #0099CC;
+}
+nav > ul > li > a:hover {
+  color: #0099CC;
+}
+nav > ul > li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+#content {
+  height: 900px;
+}
+form {
+  float: right;
+  width: 300px;
+  background-color: #adadad;
+}
+form > input,
+form > button {
+  display: block;
+  width: 250px;
+  margin: 0px 0px 10px 25px;
+}
+form > label,
+form > fieldset {
+  margin-left: 5px;
+}
+form > fieldset {
+  margin-top: 10px;
+}
+form > #close {
+  width: 25px;
+  height: 25px;
+  float: right;
+  margin: -50px 10px 0px 0px;
+}
+form > #close > i {
+  margin-left: -3px;
+}
+.error {
+  border: 1px solid red;
+}
+.placeholder {
+  color: #A2A2A2;
+}
