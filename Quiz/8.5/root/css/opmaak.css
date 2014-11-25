@@ -1,14 +1,26 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
 body {
-  padding: 10px;
+  background-color: #0055bb;
+}
+#wrapper {
+  margin: auto;
+  padding: auto;
+  width: 960px;
+  background-color: #660000;
 }
 header {
+  width: 100%;
+  position: fixed;
   padding-top: 10px;
   height: 40px;
   background-color: #dddddd;
-  margin-bottom: 10px;
 }
 nav {
   float: right;
+  width: 340px;
 }
 nav > ul > li {
   float: left;
@@ -26,13 +38,18 @@ nav > ul > li:hover {
   text-decoration: underline;
   cursor: pointer;
 }
+p {
+  color: white;
+}
 #content {
-  height: 900px;
+  height: 1500px;
 }
 form {
   float: right;
   width: 300px;
+  margin-top: 50px;
   background-color: #adadad;
+  margin-right: 10px;
 }
 form > input,
 form > button {

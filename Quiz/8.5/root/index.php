@@ -27,15 +27,23 @@ init_database();
         </ul>
     </nav>
 </header>
-<div id="content">
+<div id="registration">
+    <div id="window">
+
+    </div>
 </div>
-<footer>
-    <nav>
-        <ul>
-            <li>Aantal online:0</li>
-        </ul>
-    </nav>
-</footer>
+<div id="wrapper">
+    <div id="content">
+<p>jdjsskd,kkd,ksdf,ksdksdf,ksdfsdf,ksdf,ksdf,ksdf,k</p>
+    </div>
+    <footer>
+        <nav>
+            <ul>
+                <li>Aantal online:0</li>
+            </ul>
+        </nav>
+    </footer>
+</div>
 <script src="scripts/modernizr.js"></script>
 <script src="scripts/index.js"></script>
 </body>

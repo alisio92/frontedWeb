@@ -24,13 +24,23 @@ function clickLogin(){
 function closeButton(){
     showRegister = false;
     showLogin = false;
-    showForm();
+    closeForm();
+}
+function closeForm(){
+    var window = document.getElementById("window");
+    window.style.position = "absolute";
+    //indow.style.marginLeft
+    //window.style.opacity = 0;
+    //window.style.transition = "opacity .30s linear";
+    //window.style.marginTop= -350+"px";;
+    //window.style.transition = "margin .30s linear";
 }
 function showForm() {
     var Name, Form = "";
     if(showRegister) Name = "Registreren";
     if(showLogin) Name = "Login";
     if(showRegister || showLogin){
+        Form += '<div id="window">';
         Form += '<form method="post">';
         Form += '<fieldset><legend>' + Name + '</legend></fieldset>';
         Form += '<button type="button" id="close" class="btn-primary"><i class="glyphicon glyphicon-eye-close"></i></button>';
@@ -46,8 +56,9 @@ function showForm() {
     if(showRegister || showLogin){
         Form += '<button type="button" class="btn-primary" id="saveButton" ><i class="glyphicon glyphicon-asterisk">' + Name + '</i></button>';
         Form += '</form>';
+        Form += '</div>';
     }
-    document.getElementById("content").innerHTML = Form;
+    document.getElementById("registration").innerHTML = Form;
     if(showRegister || showLogin){
         document.getElementById("name").focus();
         var close = document.getElementById("close");
