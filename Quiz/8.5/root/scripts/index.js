@@ -28,12 +28,12 @@ function closeButton(){
 }
 function closeForm(){
     var window = document.getElementById("window");
-    window.style.position = "absolute";
-    //indow.style.marginLeft
-    //window.style.opacity = 0;
-    //window.style.transition = "opacity .30s linear";
-    //window.style.marginTop= -350+"px";;
-    //window.style.transition = "margin .30s linear";
+    window.style.opacity = 0;
+    window.style.marginTop = -350+"px";
+    window.style.transition = "margin .30s linear, opacity .30s linear";
+    if( window.style.transition.finish) showForm();
+    //document.getElementById("registration").innerHTML = "";
+    //if(window.style.opacity == 0) showForm();
 }
 function showForm() {
     var Name, Form = "";
@@ -46,12 +46,12 @@ function showForm() {
         Form += '<button type="button" id="close" class="btn-primary"><i class="glyphicon glyphicon-eye-close"></i></button>';
         Form += '<label for="name">Naam:</label>';
         Form += '<input type="text" name="name" id="name" title="name" placeholder="Vul hier uw naam in" required/>';
-        Form += '<label for="pass1">Passwoord:</label>';
-        Form += '<input type="password" name="pass1" id="pass1" placeholder="Vul hier uw passwoord in" title="pass1" required/>';
+        Form += '<label for="pass1">Paswoord:</label>';
+        Form += '<input type="password" name="pass1" id="pass1" placeholder="Vul hier uw paswoord in" title="pass1" required/>';
     }
     if(showRegister) {
         Form += '<label for="pass2">Passwoord Controle:</label>';
-        Form += '<input type="password" name="pass2" id="pass2" placeholder="Vul hier opnieuw uw passwoord in" title="pass2" required/>';
+        Form += '<input type="pasword" name="pass2" id="pass2" placeholder="Vul hier opnieuw uw paswoord in" title="pass2" required/>';
     }
     if(showRegister || showLogin){
         Form += '<button type="button" class="btn-primary" id="saveButton" ><i class="glyphicon glyphicon-asterisk">' + Name + '</i></button>';
@@ -59,6 +59,9 @@ function showForm() {
         Form += '</div>';
     }
     document.getElementById("registration").innerHTML = Form;
+    /*var window = document.getElementById("window");
+    window.style.transition = "opacity 5.30s linear";
+    window.style.opacity = 1;*/
     if(showRegister || showLogin){
         document.getElementById("name").focus();
         var close = document.getElementById("close");

@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(255) NOT NULL PRIMARY KEY auto_increment,
+  `name` varchar(255) NOT NULL default '',
+  `rank` int(255) NOT NULL default 0,
+  `password` varchar(255) NOT NULL default '',
+  `score` int(255) NOT NULL default 0,
+  FOREIGN KEY (rank) REFERENCES rank (id)
+)

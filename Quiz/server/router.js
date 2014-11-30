@@ -7,6 +7,7 @@ var requestHandlers = require("./requestHandlers"),
 
 var localMaps = {
     ".html": "./../client/",
+    ".php": "./../client/",
     ".css": "./../client/css/",
     ".js": "./../client/scripts/",
     ".png": "./../client/images/",

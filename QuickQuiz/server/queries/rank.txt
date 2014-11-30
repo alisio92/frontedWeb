@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS `rank` (
+  `id` int(255) NOT NULL PRIMARY KEY auto_increment,
+  `name` varchar(255) NOT NULL default '',
+  `admin` bit NOT NULL default ''
+)

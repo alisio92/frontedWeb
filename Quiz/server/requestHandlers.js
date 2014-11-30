@@ -19,7 +19,8 @@ var extensions = {
     ".js": "application/javascript",
     ".png": "image/png",
     ".gif": "image/gif",
-    ".jpg": "image/jpeg"
+    ".jpg": "image/jpeg",
+    ".php": "application/php"
 };
 var readFile = function (uri ,res) {
     //haal extensie op

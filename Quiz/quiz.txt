@@ -1,0 +1,4 @@
+1) form kan ik niet wegdoen met transition
+2) php pretenders werkt ni
+3) php naar javascript en omgekeerd via server
+4) content kan geen margin op

@@ -39,7 +39,8 @@ var staticServer = (function () {
         ".js": "application/javascript",
         ".png": "image/png",
         ".gif": "image/gif",
-        ".jpg": "image/jpeg"
+        ".jpg": "image/jpeg",
+        ".php": "application/php"
     };
 
     var init = function (router, handlers , httpPort, socketHandlers) {

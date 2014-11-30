@@ -19,6 +19,14 @@ socket.on("serverMessage", function (json) {
     showMessage(JSON.parse(json));
 })
 
+socket.on("ServerGiveNumberUsers", function (json) {
+    document.getElementById("numberUsers").innerHTML = "Aantal gebruikers online: " + JSON.parse(json);
+})
+
+socket.on("serverMessage", function (json) {
+    showMessage(JSON.parse(json));
+})
+
 function showMessage(obj) {
     var newMsg = document.createElement("div");
     newMsg.appendChild(document.createTextNode(obj.id + " said: " + obj.content));

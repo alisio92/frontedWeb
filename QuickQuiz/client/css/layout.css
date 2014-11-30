@@ -1,0 +1,86 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  background-color: #0055bb;
+}
+#wrapper {
+  margin: auto;
+  padding: auto;
+  width: 960px;
+  background-color: #660000;
+}
+header {
+  width: 100%;
+  position: fixed;
+  padding-top: 10px;
+  height: 40px;
+  background-color: #dddddd;
+  z-index: 1;
+}
+nav {
+  float: right;
+  width: 340px;
+}
+nav > ul > li {
+  float: left;
+  list-style-type: none;
+  width: 100px;
+  color: #0099CC;
+}
+nav > ul > li > a {
+  color: #0099CC;
+}
+nav > ul > li > a:hover {
+  color: #0099CC;
+}
+nav > ul > li:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+p {
+  color: white;
+}
+#content {
+  height: 1500px;
+}
+#registration {
+  position: absolute;
+  right: 0px;
+}
+#registration > form {
+  float: right;
+  width: 300px;
+  margin-top: 50px;
+  background-color: #adadad;
+  margin-right: 10px;
+}
+#registration > form > input,
+#registration > form > button {
+  display: block;
+  width: 250px;
+  margin: 0px 0px 10px 25px;
+}
+#registration > form > label,
+#registration > form > fieldset {
+  margin-left: 5px;
+}
+#registration > form > fieldset {
+  margin-top: 10px;
+}
+#registration > form > #close {
+  width: 25px;
+  height: 25px;
+  float: right;
+  margin: -50px 10px 0px 0px;
+}
+#registration > form > #close > i {
+  margin-left: -3px;
+}
+.error {
+  border: 1px solid red;
+}
+.placeholder {
+  color: #A2A2A2;
+}
