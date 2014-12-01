@@ -14,4 +14,4 @@ var staticServer = require("./staticServer.js");
 var handlers = {}
 handlers["/"] = requestHandlers.root;
 
-staticServer.init( router , handlers ,port, socketHandlers);
+staticServer.init( router , handlers ,ip, port, socketHandlers);
