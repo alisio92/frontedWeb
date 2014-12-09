@@ -2,13 +2,16 @@
  * Created by alisio on 22/11/2014.
  */
 var domain = require("domain");
-var users = [];
+var player = require("./player.js");
+var serverQuiz = require("./serverQuiz.js");
+//var users = [];
 
 var getHandlers = function (httpServer) {
     var socketDomain = domain.create();
+    //serverQuiz = new ServerQuiz();
     socketDomain.on('error', function (err) {
         console.log('Error caught in socket domain:' + err);
-    })
+    });
 
     socketDomain.run(function () {
         var io = require('socket.io').listen(httpServer);
@@ -16,21 +19,31 @@ var getHandlers = function (httpServer) {
             var address = socket.handshake.address;
             //console.log("sockets connection established " + address.address+":"+address.port);
             console.log("sockets connection established " + socket.request.connection.remoteAddress);
-            socket.emit('ServerGiveNumberUsers', users.length);
-            users.push(address.address);
-            socket.on('clientMessage', function (content) {
-                //emit laat toe een json object te sturen
-                var obj = { color: socket.color , id : socket.id , content: content }
-                socket.emit('serverMessage', JSON.stringify(obj)); //naar zichzelf
-                socket.broadcast.emit('serverMessage', JSON.stringify(obj)); // naar andere clients only
-            });
 
-            socket.on('ClientGetNumberUsers', function (content) {
-                socket.emit('ServerGiveNumberUsers', users.length);
-            });
+            //id, ip, name, img, registered, admin
+            player.init(null, address, null, null, false, false);
+            if(!serverQuiz.checkIfExists(player)) {
+                serverQuiz.addUser(player);
+            }
+            socket.emit('ServerGiveNumberUsers', serverQuiz.players.length);
+            socket.broadcast.emit('ServerGiveNumberUsers', serverQuiz.players.length);
+            retrievedMessage(socket);
         });
     });
 };
+
+function retrievedMessage(socket){
+    socket.on('clientMessage', function (content) {
+        //emit laat toe een json object te sturen
+        var obj = { color: socket.color , id : socket.id , content: content }
+        socket.emit('serverMessage', JSON.stringify(obj)); //naar zichzelf
+        socket.broadcast.emit('serverMessage', JSON.stringify(obj)); // naar andere clients only
+    });
+
+    socket.on('ClientGetNumberUsers', function (content) {
+        socket.emit('ServerGiveNumberUsers', serverQuiz.players.length);
+    });
+}
 
 function createUserInDatabase(name, pass){
 

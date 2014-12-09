@@ -7,13 +7,14 @@ var requestHandlers = require("./requestHandlers"),
 
 var localMaps = {
     ".html": "../../client/",
-    ".php": "../../client/",
-    ".css": "../../client/css/",
-    ".js": "../../client/scripts/",
-    ".png": "../../client/images/",
-    ".gif": "../../client/images/",
-    ".jpg": "../../client/images/",
-    ".ico": "../../client/images/"
+    ".php": "./../../client/php/",
+    ".css": "./../../client/css/",
+    ".map": "./../../client/css/",
+    ".js": "./../../client/js/",
+    ".png": "../../client/",
+    ".gif": "../../../client/",
+    ".jpg": "../../client/",
+    ".ico": "../../client/"
 }
 
 var getRoute = function (handlers, uri, request , response) {

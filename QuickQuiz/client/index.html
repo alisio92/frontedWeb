@@ -3,7 +3,7 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <link href="bootstrap/css/bootstrap.css" rel="stylesheet"/>
+    <link href="css/bootstrap.css" rel="stylesheet"/>
     <link href="css/layout.css" rel="stylesheet"/>
 </head>
 <body>
@@ -20,16 +20,27 @@
 <div id="wrapper">
     <div id="content">
         <p>jdjsskd,kkd,ksdf,ksdksdf,ksdfsdf,ksdf,ksdf,ksdf,k</p>
+        <div id="container">
+            <div id="cube" class="animate">
+                <div><p>lolololol</p></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </div>
     </div>
     <footer>
         <nav>
             <ul>
-                <li>Aantal online:0</li>
+                <li id="online">Aantal online:0</li>
             </ul>
         </nav>
     </footer>
 </div>
-<script src="src/modernizr.js"></script>
+<script src="js/modernizr.js"></script>
+<script src="../socket.io/socket.io.js"></script>
 <script src="js/client.js"></script>
 </body>
 </html>

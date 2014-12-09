@@ -7,14 +7,14 @@ var messages = document.getElementById('messages');
 var btn = document.getElementById('send');
 var lastMsg ; //div element met client message
 
-btn.addEventListener("click", save);
+//btn.addEventListener("click", save);
 
 socket.on("serverMessage", function (json) {
     showMessage(JSON.parse(json));
 });
 
 socket.on("ServerGiveNumberUsers", function (json) {
-    document.getElementById("numberUsers").innerHTML = "Aantal gebruikers online: " + JSON.parse(json);
+    document.getElementById("online").innerHTML = "Aantal gebruikers online: " + JSON.parse(json);
 });
 
 socket.on("serverMessage", function (json) {
