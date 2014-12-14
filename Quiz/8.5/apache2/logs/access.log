@@ -1,6 +1,7 @@
-::1 - - [30/Nov/2014:15:11:49 +0100] "GET / HTTP/1.1" 200 1034
-::1 - - [30/Nov/2014:15:11:49 +0100] "GET /bootstrap/css/bootstrap.css HTTP/1.1" 200 132546
-::1 - - [30/Nov/2014:15:11:49 +0100] "GET /css/opmaak.css HTTP/1.1" 200 1193
-::1 - - [30/Nov/2014:15:11:50 +0100] "GET /scripts/index.js HTTP/1.1" 200 2763
-::1 - - [30/Nov/2014:15:11:50 +0100] "GET /scripts/modernizr.js HTTP/1.1" 200 30169
-::1 - - [30/Nov/2014:15:11:50 +0100] "GET /favicon.ico HTTP/1.1" 404 209
+::1 - - [14/Dec/2014:12:15:24 +0100] "GET / HTTP/1.1" 200 1034
+127.0.0.1 - - [14/Dec/2014:12:15:24 +0100] "GET /css/opmaak.css HTTP/1.1" 200 1193
+::1 - - [14/Dec/2014:12:15:24 +0100] "GET /bootstrap/css/bootstrap.css HTTP/1.1" 200 132546
+::1 - - [14/Dec/2014:12:15:24 +0100] "GET /scripts/modernizr.js HTTP/1.1" 200 30169
+::1 - - [14/Dec/2014:12:15:24 +0100] "GET /scripts/index.js HTTP/1.1" 200 2763
+::1 - - [14/Dec/2014:12:15:25 +0100] "GET /favicon.ico HTTP/1.1" 404 209
+::1 - - [14/Dec/2014:12:15:27 +0100] "GET /bootstrap/fonts/glyphicons-halflings-regular.woff HTTP/1.1" 200 23320

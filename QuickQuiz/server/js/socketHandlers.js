@@ -8,7 +8,6 @@ var serverQuiz = require("./serverQuiz.js");
 
 var getHandlers = function (httpServer) {
     var socketDomain = domain.create();
-    //serverQuiz = new ServerQuiz();
     socketDomain.on('error', function (err) {
         console.log('Error caught in socket domain:' + err);
     });
@@ -21,36 +20,56 @@ var getHandlers = function (httpServer) {
             console.log("sockets connection established " + socket.request.connection.remoteAddress);
 
             //id, ip, name, img, registered, admin
-            player.init(null, address, null, null, false, false);
-            if(!serverQuiz.checkIfExists(player)) {
-                serverQuiz.addUser(player);
-            }
-            socket.emit('ServerGiveNumberUsers', serverQuiz.players.length);
-            socket.broadcast.emit('ServerGiveNumberUsers', serverQuiz.players.length);
+            var id = serverQuiz.players.length;
+            player.init(id, address, null, null, false, false);
+            serverQuiz.addUser(player);
+            socket.emit('serverGiveNumberUsers', serverQuiz.players.length);
+            socket.emit('serverClientId', id);
+            socket.broadcast.emit('serverGiveNumberUsers', serverQuiz.players.length);
             retrievedMessage(socket);
         });
     });
 };
 
-function retrievedMessage(socket){
+function retrievedMessage(socket) {
     socket.on('clientMessage', function (content) {
         //emit laat toe een json object te sturen
-        var obj = { color: socket.color , id : socket.id , content: content }
+        var obj = {color: socket.color, id: socket.id, content: content}
         socket.emit('serverMessage', JSON.stringify(obj)); //naar zichzelf
         socket.broadcast.emit('serverMessage', JSON.stringify(obj)); // naar andere clients only
     });
 
-    socket.on('ClientGetNumberUsers', function (content) {
-        socket.emit('ServerGiveNumberUsers', serverQuiz.players.length);
+    socket.on('clientGetNumberUsers', function (content) {
+        socket.emit('serverGiveNumberUsers', serverQuiz.players.length);
+    });
+
+    socket.on('clientRegisterMessage', function (content) {
+        var res = content.split(":");
+        createUserInDatabase(socket, res[0], res[1], res[2]);
+    });
+
+    socket.on('clientLoginMessage', function (content) {
+        var res = content.split(":");
+        checkUserExistsInDatabase(socket, res[0], res[1], res[2]);
     });
 }
 
-function createUserInDatabase(name, pass){
+function createUserInDatabase(socket, id, name, pass) {
+    var address = socket.handshake.address;
+    //create user database
 
+    player.init(id, address, name, null, true, false);
+    serverQuiz.replaceUnregisteredPlayerWithRegisteredPlayerById(id, player);
+    socket.emit('serverRegisterMessage', true + ":" + name + ":" + true);
 }
 
-function checkUserExistsInDatabase(name, pass){
-    return true
+function checkUserExistsInDatabase(socket, id, name, pass) {
+    var address = socket.handshake.address;
+    //check if user exists
+
+    player.init(id, address, name, null, true, false);
+    serverQuiz.replaceUnregisteredPlayerWithRegisteredPlayerById(id, player);
+    socket.emit('serverLoginMessage', true + ":" + name + ":" + true);
 }
 
 module.exports.getHandlers = getHandlers;

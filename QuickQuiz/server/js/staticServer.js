@@ -10,14 +10,14 @@ var staticServer = (function () {
         httpDomain = domain.create()
 
 
-    var httpListen = function (router, handlers, httpPort, socketHandlers) {
+    var httpListen = function (router, handlers, httpPort, httpIP, socketHandlers) {
         httpDomain.on('error', function (err) {
             console.log('Error in the http domain:', err);
         });
 
         httpDomain.run(function () {
             var httpServer = http.createServer(handler)
-            httpServer.listen(httpPort);
+            httpServer.listen(httpPort, httpIP);
 
             // socketServer listens to httpServer
             //var io = require('socket.io').listen(httpServer);
@@ -28,7 +28,7 @@ var staticServer = (function () {
                 var uri = url.parse(req.url).pathname;
                 console.log("routing ophalen voor uri : " + uri)
 
-                router.getRoute(handlers, uri, req , res);
+                router.getRoute(handlers, uri, req, res);
             }
         });
     };
@@ -43,9 +43,9 @@ var staticServer = (function () {
         ".php": "application/php"
     };
 
-    var init = function (router, handlers , httpIP, httpPort, socketHandlers) {
-        console.log("server running on port :", httpPort , socketHandlers);
-        httpListen(router, handlers, httpPort, socketHandlers);
+    var init = function (router, handlers, httpIP, httpPort, socketHandlers) {
+        console.log("server running on address: " + httpIP + ", port:", httpPort, socketHandlers);
+        httpListen(router, handlers, httpPort, httpIP, socketHandlers);
     };
 
     return {

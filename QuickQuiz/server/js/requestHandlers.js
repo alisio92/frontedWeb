@@ -22,7 +22,7 @@ var extensions = {
     ".jpg": "image/jpeg",
     ".php": "application/php"
 };
-var readFile = function (uri ,res) {
+var readFile = function (uri, res) {
     //haal extensie op
     var ext = path.extname(uri),
         localPath = path.normalize(process.cwd() + uri);
@@ -33,13 +33,13 @@ var readFile = function (uri ,res) {
         if (exists) {
             fs.readFile(localPath, function (err, contents) {
                 if (!err) {
-                    res.writeHead(200, { "Content-Type": extensions[ext] });
+                    res.writeHead(200, {"Content-Type": extensions[ext]});
                     res.write(contents); //in hex is OK
                 }
                 res.end();
             });
         } else {
-            res.writeHead(404, { 'content-type': 'text/html' });
+            res.writeHead(404, {'content-type': 'text/html'});
             res.write('File not found: ' + filename);
         }
     });

@@ -1,9 +1,9 @@
-[Sun Nov 30 15:11:48 2014] [notice] Apache/2.2.21 (Win32) PHP/5.3.9 configured -- resuming normal operations
-[Sun Nov 30 15:11:48 2014] [notice] Server built: Sep 10 2011 11:34:11
-[Sun Nov 30 15:11:48 2014] [notice] Parent: Created child process 9492
-[Sun Nov 30 15:11:49 2014] [notice] Child 9492: Child process is running
-[Sun Nov 30 15:11:49 2014] [notice] Child 9492: Acquired the start mutex.
-[Sun Nov 30 15:11:49 2014] [notice] Child 9492: Starting 64 worker threads.
-[Sun Nov 30 15:11:49 2014] [notice] Child 9492: Starting thread to listen on port 8080.
-[Sun Nov 30 15:11:49 2014] [notice] Child 9492: Starting thread to listen on port 8080.
-[Sun Nov 30 15:11:50 2014] [error] [client ::1] File does not exist: C:/Users/alisio/Documents/GitHub/frontedWeb/Quiz/8.5/root/favicon.ico
+[Sun Dec 14 12:15:23 2014] [notice] Apache/2.2.21 (Win32) PHP/5.3.9 configured -- resuming normal operations
+[Sun Dec 14 12:15:23 2014] [notice] Server built: Sep 10 2011 11:34:11
+[Sun Dec 14 12:15:23 2014] [notice] Parent: Created child process 5352
+[Sun Dec 14 12:15:23 2014] [notice] Child 5352: Child process is running
+[Sun Dec 14 12:15:24 2014] [notice] Child 5352: Acquired the start mutex.
+[Sun Dec 14 12:15:24 2014] [notice] Child 5352: Starting 64 worker threads.
+[Sun Dec 14 12:15:24 2014] [notice] Child 5352: Starting thread to listen on port 8080.
+[Sun Dec 14 12:15:24 2014] [notice] Child 5352: Starting thread to listen on port 8080.
+[Sun Dec 14 12:15:25 2014] [error] [client ::1] File does not exist: C:/Users/alisio/Documents/GitHub/frontedWeb/Quiz/8.5/root/favicon.ico

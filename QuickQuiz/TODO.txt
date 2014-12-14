@@ -1,0 +1,15 @@
+tabel met items auto aanmaken
+admin user auto toevoegen database
+records in database invoegen
+php laten uitvoeren
+nav beter uitlijnen
+wanneer client afsluit uit list halen
+animatie op form inladen
+background image
+admin pagina met records invoegen, kicken en gegevens opvragen
+game class
+game oproepen
+communicatie php en javascript
+angular
+opkuisen
+cube
