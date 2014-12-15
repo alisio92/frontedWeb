@@ -6,7 +6,7 @@
  * Time: 13:50
  */
 include_once("php/connection.inc");
-init_database();
+//init_database();
 ?>
 
 <!DOCTYPE html>
@@ -46,5 +46,7 @@ init_database();
 </div>
 <script src="scripts/modernizr.js"></script>
 <script src="scripts/index.js"></script>
+<script src="jquery-2.1.1.min.js"></script>
+<script src="index.js"></script>
 </body>
 </html>

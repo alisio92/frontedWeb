@@ -2,14 +2,27 @@ tabel met items auto aanmaken
 admin user auto toevoegen database
 records in database invoegen
 php laten uitvoeren
-nav beter uitlijnen
 wanneer client afsluit uit list halen
 animatie op form inladen
 background image
 admin pagina met records invoegen, kicken en gegevens opvragen
-game class
 game oproepen
 communicatie php en javascript
 angular
 opkuisen
-cube
+chat
+facebook
+user pagina, img toevoegen
+specrunner
+logout
+
+//bugs
+na inloggen kan met window niet meer openen
+jQuery en ajax werkt ni
+login en register fields worden nietgetoond onmiddelijk
+bootstrap probleem op cube
+text ziet er mottig uit
+array's kloppen ni
+
+//vragen
+join

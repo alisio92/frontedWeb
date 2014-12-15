@@ -2,28 +2,11 @@
  * Created by alisio on 30/11/2014.
  */
 var port = 4000;
-var ip = "192.168.1.3";
+var ip = "localhost";
 var requestHandlers = require("./requestHandlers.js");
 var router = require("./router.js")
 var socketHandlers = require("./socketHandlers.js");
-
-(function () {
-    jQuery.ajax({
-        type: "POST",
-        url: './../connection.php',
-        dataType: 'json',
-        data: {functionname: 'init_database', arguments: []},
-
-        success: function (obj, textstatus) {
-            if (!('error' in obj)) {
-                yourVariable = obj.result;
-            }
-            else {
-                console.log(obj.error);
-            }
-        }
-    });
-});
+//var database = require("./database.js");
 
 //1. static Server activeren
 var staticServer = require("./staticServer.js");
@@ -32,4 +15,5 @@ var staticServer = require("./staticServer.js");
 var handlers = {}
 handlers["/"] = requestHandlers.root;
 
+//database.init();
 staticServer.init(router, handlers, ip, port, socketHandlers);

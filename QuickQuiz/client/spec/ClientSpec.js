@@ -2,15 +2,15 @@
  * Created by alisio on 1/12/2014.
  */
 //naam van de suite, javescript functie met de run
-describe("Client test", function(){
+describe("Client test", function () {
     var client;
-    beforeEach(function(){
+    beforeEach(function () {
         client = new client();
         //jasmine.addMatchers(customMatcher);
     });
 
     //of calc een bestaande obj is
-    it("should be a Server", function(){
+    it("should be a Server", function () {
         expect(client).toBeDefined();
         //expect typeof
     });

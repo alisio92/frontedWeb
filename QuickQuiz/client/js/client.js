@@ -4,12 +4,30 @@
 document.addEventListener("DOMContentLoaded", init);
 var showLogin = false;
 var showRegister = false;
+var props = 'transform WebkitTransform MozTransform OTransform msTransform'.split(' '),
+    prop,
+    el = document.createElement('div');
+
+for (var i = 0, l = props.length; i < l; i++) {
+    if (typeof el.style[props[i]] !== "undefined") {
+        prop = props[i];
+        break;
+    }
+}
 
 function init() {
     var register = document.getElementById("register");
     register.addEventListener("click", clickRegisterWindow);
     var login = document.getElementById("login");
     login.addEventListener("click", clickLoginWindow);
+    var goToQueue = document.getElementById("goToQueue");
+    goToQueue.addEventListener("click", clickgoToQueue);
+}
+function clickgoToQueue() {
+    if (registeredPlayer) {
+        propTCP = prop;
+        getQueuesFromServer();
+    }
 }
 function clickRegisterWindow() {
     showRegister = true;
@@ -87,6 +105,6 @@ function clickRegisterApp() {
     var name = document.getElementById("name");
     var pass1 = document.getElementById("pass1");
     var pass2 = document.getElementById("pass2");
-    if(pass1.value == pass2.value) registerTCP(name.value, pass1.value);
+    if (pass1.value == pass2.value) registerTCP(name.value, pass1.value);
     else alert("pass1 != pass2");
 }
