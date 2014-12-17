@@ -3,10 +3,8 @@ admin user auto toevoegen database
 records in database invoegen
 php laten uitvoeren
 wanneer client afsluit uit list halen
-animatie op form inladen
 background image
-admin pagina met records invoegen, kicken en gegevens opvragen
-game oproepen
+admin pagina met records invoegen, kicken en gegevens opvragend
 communicatie php en javascript
 angular
 opkuisen
@@ -15,14 +13,14 @@ facebook
 user pagina, img toevoegen
 specrunner
 logout
+uit server halen als user weg is
+awnsers buttons
+als speler wegvalt in game, game stoppen
+werkelijke game
 
 //bugs
-na inloggen kan met window niet meer openen
 jQuery en ajax werkt ni
-login en register fields worden nietgetoond onmiddelijk
-bootstrap probleem op cube
-text ziet er mottig uit
-array's kloppen ni
+text ziet er mottig uit door perspective
 
 //vragen
 join

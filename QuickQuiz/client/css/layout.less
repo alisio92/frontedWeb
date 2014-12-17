@@ -25,12 +25,12 @@ header {
   height: 45px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.1), 0 1px 0 0 rgba(0, 0, 0, 0.1);
   width: 100%;
-  padding-top: 10px;
   z-index: 1;
 }
 
 nav {
   float: right;
+  padding-top: 10px;
   > ul {
     > li {
       float: left;
@@ -59,18 +59,31 @@ p {
 #registration {
   position: absolute;
   right: 0px;
+  margin: 10px 10px 0px 0px;
   > #window > form {
     float: right;
     width: 300px;
-    margin: 10px 10px 0px 0px;
-    background-color: #adadad;
-    > input, > button {
-      display: block;
+    background-color: #000000;
+    > fieldset {
+      margin-bottom: 10px;
+      border: 0;
+      > legend {
+        color: #cccccc;
+        font-size: 16px;
+      }
+    }
+    > input{
       width: 250px;
+      margin: 0px 0px 10px 25px;
+    }
+    > button {
+      width: 255px;
       margin: 0px 0px 10px 25px;
     }
     > label, > fieldset {
       margin-left: 5px;
+      color: #ffffff;
+      font-size: 16px;
     }
     > fieldset {
       margin-top: 10px;
@@ -79,10 +92,7 @@ p {
       width: 25px;
       height: 25px;
       float: right;
-      margin: -50px 10px 0px 0px;
-      > i {
-        margin-left: -3px;
-      }
+      margin: -30px 10px 0px 0px;
     }
   }
 }
@@ -95,18 +105,18 @@ p {
 #goToQueue {
   z-index: 1;
   margin-top: 10px;
-  width: 80px;
+  width: 90px;
 }
 
-#queue{
+#queue {
   background-color: #ffff00;
-  > p{
-    width: 145px;
+  > p {
+    width: 125px;
     float: left;
     padding-top: 10px;
   }
   > ul {
-    > li{
+    > li {
       float: left;
       list-style-type: none;
       height: 40px;
@@ -125,23 +135,23 @@ p {
   }
 }
 
-.item{
+.item {
   background-color: #000000;
 }
 
-.header{
+.header {
   background-color: #004444;
 }
 
 .pButton {
-  height: 30px;
+  height: 40px;
   padding: 10px 0px 0px 10px;
   background-color: #ffffff;
   font-size: 22px;
   color: #000000;
 }
 
-.pButton:hover, .join:hover{
+.pButton:hover, .join:hover {
   text-decoration: underline;
   cursor: pointer;
 }
@@ -154,7 +164,6 @@ p {
   -moz-perspective-origin: 50% 200px;
   perspective: 800px;
   perspective-origin: 50% 200px;
-  z-index: 0;
 }
 
 #cube {

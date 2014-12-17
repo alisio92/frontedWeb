@@ -2,7 +2,9 @@
  * Created by alisio on 6/12/2014.
  */
 var Player = (function () {
-    var init = function (id, ip, name, img, registered, admin) {
+    var players = new Array();
+    var init = function (socket, id, ip, name, img, registered, admin) {
+        this.socket = socket;
         this.id = id;
         this.ip = ip;
         this.name = name;
@@ -11,8 +13,13 @@ var Player = (function () {
         this.admin = admin;
         this.score = 0;
     };
-
     init.prototype = {
+        get Socket() {
+            return this.socket
+        },
+        set Socket(v) {
+            this.socket = v
+        },
         get ID() {
             return this.id
         },
@@ -62,9 +69,26 @@ var Player = (function () {
             this.score = v
         }
     };
-
+    var addUser = function (player) {
+        players.push(player);
+    };
+    var replaceUnregisteredPlayerWithRegisteredPlayer = function (player) {
+        players[player.id] = player;
+    };
+    var checkIfExists = function (player) {
+        if (players.indexOf(player) > -1) return true;
+        else return false;
+    };
+    var getPlayer = function(id){
+        return players[id];
+    }
     return {
-        init: init
+        init: init,
+        addUser: addUser,
+        replaceUnregisteredPlayerWithRegisteredPlayer: replaceUnregisteredPlayerWithRegisteredPlayer,
+        checkIfExists: checkIfExists,
+        getPlayer: getPlayer,
+        players: players
     }
 })();
 

@@ -6,7 +6,7 @@ var ip = "localhost";
 var requestHandlers = require("./requestHandlers.js");
 var router = require("./router.js")
 var socketHandlers = require("./socketHandlers.js");
-//var database = require("./database.js");
+var database = require("./database.js");
 
 //1. static Server activeren
 var staticServer = require("./staticServer.js");

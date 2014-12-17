@@ -1,7 +1,8 @@
 /**
  * Created by alisio on 15/12/2014.
  */
-var query = require("./../jQuery/jquery-2.1.1.js");
+//var query = require("./../jQuery/jquery-2.1.1.js");
+var query = require("./../../node_modules/jquery/dist/cdn/jquery-2.1.1.min.js");
 var Database = (function () {
     var init = function () {
         query.jQuery.ajax({
