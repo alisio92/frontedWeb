@@ -16,6 +16,7 @@ socket.on("serverMessage", function (json) {
 });
 socket.on("serverGiveNumberUsers", function (json) {
     document.getElementById("online").innerHTML = "Aantal gebruikers online: " + JSON.parse(json);
+    init_database();
 });
 socket.on("serverClientId", function (json) {
     playerId = JSON.parse(json);

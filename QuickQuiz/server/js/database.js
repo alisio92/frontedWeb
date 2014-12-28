@@ -5,7 +5,7 @@
 var query = require("./../../node_modules/jquery/dist/cdn/jquery-2.1.1.min.js");
 var Database = (function () {
     var init = function () {
-        query.jQuery.ajax({
+        $.ajax({
             type: "POST",
             url: './../php/connection.php',
             dataType: 'php',

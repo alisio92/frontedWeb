@@ -5,7 +5,7 @@
  * Date: 23/11/2014
  * Time: 13:50
  */
-include_once("php/connection.inc");
+//include_once("php/connection.php");
 //init_database();
 ?>
 
@@ -18,7 +18,7 @@ include_once("php/connection.inc");
     <link href="css/opmaak.css" rel="stylesheet"/>
 </head>
 <body>
-<header>
+<!--<header>
     <nav>
         <ul>
             <li><a href="" title="Ga naar Admin pagina" alt="Ga naar Admin pagina">Admin</a></li>
@@ -43,9 +43,9 @@ include_once("php/connection.inc");
             </ul>
         </nav>
     </footer>
-</div>
+</div>-->
 <script src="scripts/modernizr.js"></script>
-<script src="scripts/index.js"></script>
+<!--<script src="scripts/index.js"></script>-->
 <script src="jquery-2.1.1.min.js"></script>
 <script src="index.js"></script>
 </body>
