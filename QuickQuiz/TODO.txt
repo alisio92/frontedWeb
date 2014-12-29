@@ -1,4 +1,3 @@
-admin user auto toevoegen database
 records in database invoegen
 php laten uitvoeren
 wanneer client afsluit uit list halen

@@ -42,12 +42,12 @@ function retrievedMessage(socket) {
 
     socket.on('clientRegisterMessage', function (content) {
         var res = content.split(":");
-        createUserInDatabase(socket, res[0], res[1], res[2]);
+        replaceUser(socket, res[0], res[1]);
     });
 
     socket.on('clientLoginMessage', function (content) {
         var res = content.split(":");
-        checkUserExistsInDatabase(socket, res[0], res[1], res[2]);
+        replaceUser(socket, res[0], res[1]);
     });
     socket.on('clientCreateGameMessage', function (content) {
         var res = content.split(":");
@@ -134,7 +134,7 @@ function createGame(socket, id, amount){
     socket.emit('serverGameInstanceMessage', gameId);
 }
 
-function createUserInDatabase(socket, id, name, pass) {
+function replaceUser(socket, id, name) {
     var address = socket.handshake.address;
     //create user database
     var admin = false;

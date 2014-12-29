@@ -24,14 +24,6 @@ function init() {
     fadeOutAnimation();
 
     var colorCircle = document.getElementById('test');
-
-    /*window.onmousemove = function (e) {
-        var x = e.clientX,
-            y = e.clientY;
-        colorCircle.style.top = (y - (colorCircle.offsetHeight/2)) + 'px';
-        colorCircle.style.left = (x - (colorCircle.offsetWidth/2)) + 'px';
-        //colorCircle.style.filter = filter.grayscale(100 + "%");
-    };*/
 }
 function clickgoToQueue() {
     if (registeredPlayer) {
