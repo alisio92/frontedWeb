@@ -11,12 +11,12 @@ var localMaps = {
     ".css": "./../../client/css/",
     ".map": "./../../client/css/",
     ".js": "./../../client/js/",
-    ".png": "../../client/",
-    ".gif": "../../../client/",
-    ".jpg": "../../client/",
-    ".woff": "../../fonts/",
-    ".ttf": "../../fonts/",
-    ".ico": "../../client/"
+    ".png": "./../../client/images/",
+    ".gif": "./../../../client/",
+    ".jpg": "./../../client/",
+    ".woff": "./../../fonts/",
+    ".ttf": "./../../fonts/",
+    ".ico": "./../../client/"
 }
 
 var getRoute = function (handlers, uri, request, response) {

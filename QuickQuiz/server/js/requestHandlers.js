@@ -15,12 +15,12 @@ var root = function (req, res) {
 //2. lezen van  files in de map volgens extensie ----
 var extensions = {
     ".html": "text/html",
+    //".php": "application/php",
     ".css": "text/css",
     ".js": "application/javascript",
     ".png": "image/png",
     ".gif": "image/gif",
-    ".jpg": "image/jpeg",
-    ".php": "application/php"
+    ".jpg": "image/jpeg"
 };
 var readFile = function (uri, res) {
     //haal extensie op

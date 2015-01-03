@@ -1,0 +1,3 @@
+id:naam:rank:password:img:score
+0:alisio:0:123456::0
+1:bob:1:123::0

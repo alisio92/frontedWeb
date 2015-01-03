@@ -26,13 +26,11 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="database.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/client/js/database.js">
+        <entry file="file://$PROJECT_DIR$/server/js/database.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5734494" vertical-offset="0" max-vertical-offset="919">
-              <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-              <folding>
-                <element signature="n#!!doc;n#init_database#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.6913124" vertical-offset="0" max-vertical-offset="612">
+              <caret line="22" column="60" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -40,12 +38,13 @@
       <file leaf-file-name="client.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/client.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1258">
-              <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="557" max-vertical-offset="1564">
+              <caret line="163" column="38" selection-start-line="163" selection-start-column="38" selection-end-line="163" selection-end-column="38" />
               <folding>
                 <element signature="e#0#43#0" expanded="false" />
-                <element signature="n#!!block;n#fadeOutAnimation#0" expanded="false" />
+                <element signature="n#!!block;n#changeColor#0" expanded="false" />
                 <element signature="n#!!block;n#showForm#0" expanded="false" />
+                <element signature="n#!!block;n#clickLoginApp#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -54,24 +53,23 @@
       <file leaf-file-name="clientTCP.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/client/js/clientTCP.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
-              <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="850">
+              <caret line="64" column="54" selection-start-line="64" selection-start-column="54" selection-end-line="64" selection-end-column="54" />
               <folding>
                 <element signature="e#0#43#0" expanded="false" />
-                <element signature="e#420#458#0" expanded="false" />
-                <element signature="e#512#635#0" expanded="false" />
+                <element signature="e#441#479#0" expanded="false" />
+                <element signature="e#533#635#0" expanded="false" />
                 <element signature="e#682#718#0" expanded="false" />
                 <element signature="e#773#868#0" expanded="false" />
                 <element signature="e#932#1187#0" expanded="false" />
-                <element signature="e#1241#1733#0" expanded="false" />
-                <element signature="e#1790#2282#0" expanded="false" />
-                <element signature="e#2342#2361#0" expanded="false" />
-                <element signature="e#2418#2448#0" expanded="false" />
-                <element signature="e#2509#2540#0" expanded="false" />
+                <element signature="e#1241#1961#0" expanded="false" />
+                <element signature="e#2016#2257#0" expanded="false" />
+                <element signature="e#2314#2966#0" expanded="false" />
+                <element signature="e#3026#3045#0" expanded="false" />
+                <element signature="e#3102#3132#0" expanded="false" />
+                <element signature="e#3193#3224#0" expanded="false" />
                 <element signature="n#!!block;n#getQueuesFromServer#0" expanded="false" />
                 <element signature="n#!!block;n#showMessage#0" expanded="false" />
-                <element signature="n#!!block;n#loginTCP#0" expanded="false" />
-                <element signature="n#!!block;n#registerTCP#0" expanded="false" />
                 <element signature="n#!!block;n#createGame#0" expanded="false" />
                 <element signature="n#!!block;n#joinGame#0" expanded="false" />
                 <element signature="n#!!block;n#save#0" expanded="false" />
@@ -90,29 +88,55 @@
       <file leaf-file-name="socketHandlers.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/js/socketHandlers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1019" max-vertical-offset="2601">
-              <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="1598">
+              <caret line="78" column="28" selection-start-line="78" selection-start-column="28" selection-end-line="78" selection-end-column="28" />
               <folding>
-                <element signature="n#!!block;n#checkUserExistsInDatabase#0" expanded="false" />
+                <element signature="e#1325#1627#0" expanded="false" />
+                <element signature="e#1688#1768#0" expanded="false" />
+                <element signature="e#1986#2098#0" expanded="false" />
+                <element signature="e#2158#2204#0" expanded="false" />
+                <element signature="e#2267#2356#0" expanded="false" />
+                <element signature="e#2415#2449#0" expanded="false" />
+                <element signature="e#2510#2598#0" expanded="false" />
+                <element signature="e#2656#2745#0" expanded="false" />
+                <element signature="n#!!block;n#addToReady#0" expanded="false" />
+                <element signature="n#!!block;n#joinQueue#0" expanded="false" />
+                <element signature="n#!!block;n#getQuestion#0" expanded="false" />
+                <element signature="n#!!block;n#getQueues#0" expanded="false" />
+                <element signature="n#!!block;n#createGame#0" expanded="false" />
+                <element signature="n#!!block;n#replaceUser#0" expanded="false" />
+                <element signature="n#!!block;n#removePlayer#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="connection.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/client/php/connection.php">
+      <file leaf-file-name="socket.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/node_modules/socket.io/lib/socket.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="2856">
-              <caret line="18" column="33" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="33" />
-              <folding>
-                <marker date="1419858070674" expanded="true" signature="1734:1894" placeholder="CREATE TABLE..IF..." />
-                <marker date="1419858070674" expanded="true" signature="2160:2460" placeholder="CREATE TABLE..IF..." />
-                <marker date="1419858070674" expanded="true" signature="2730:3135" placeholder="CREATE TABLE..IF..." />
-                <marker date="1419858070674" expanded="true" signature="3392:3433" placeholder="INSERT INTO ..." />
-                <marker date="1419858070674" expanded="true" signature="3718:3780" placeholder="INSERT INTO ..." />
-                <marker date="1419858070674" expanded="true" signature="4071:4137" placeholder="SELECT name,..users..." />
-                <marker date="1419858070674" expanded="true" signature="4251:4367" placeholder="INSERT INTO ..." />
-              </folding>
+            <state vertical-scroll-proportion="0.0" vertical-offset="1979" max-vertical-offset="7412">
+              <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="user.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/js/user.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1513">
+              <caret line="5" column="61" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="users.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/data/users.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="136">
+              <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -129,6 +153,7 @@
       <command text="npm install -g typescript" />
       <command text="npm install jquery" />
       <command text="npm install" />
+      <command text="npm install line-reader" />
     </commandsHistory>
   </component>
   <component name="IdeDocumentHistory">
@@ -139,30 +164,33 @@
         <option value="$PROJECT_DIR$/client/js/index.js" />
         <option value="$PROJECT_DIR$/client/SpecRunner.html" />
         <option value="$PROJECT_DIR$/client/spec/ClientSpec.js" />
-        <option value="$PROJECT_DIR$/server/js/requestHandlers.js" />
         <option value="$PROJECT_DIR$/server/spec/playerSpec.js" />
         <option value="$PROJECT_DIR$/server/spec/gameSpec.js" />
         <option value="$PROJECT_DIR$/server/SpecRunner.html" />
         <option value="$PROJECT_DIR$/server/spec/serverQuizSpec.js" />
-        <option value="$PROJECT_DIR$/server/js/staticServer.js" />
         <option value="$PROJECT_DIR$/server/php/connection.php" />
-        <option value="$PROJECT_DIR$/server/js/router.js" />
         <option value="$PROJECT_DIR$/client/css/bootstrap.css" />
         <option value="$PROJECT_DIR$/server/js/test.js" />
         <option value="$PROJECT_DIR$/server/js/test.ts" />
         <option value="$PROJECT_DIR$/server/js/test2.ts" />
         <option value="$PROJECT_DIR$/server/js/serverQuiz.js" />
-        <option value="$PROJECT_DIR$/server/js/player.js" />
         <option value="$PROJECT_DIR$/server/js/game.js" />
-        <option value="$PROJECT_DIR$/server/js/database.js" />
+        <option value="$PROJECT_DIR$/client/php/connection2.php" />
+        <option value="$PROJECT_DIR$/client/js/database.js" />
+        <option value="$PROJECT_DIR$/client/php/connection.php" />
+        <option value="$PROJECT_DIR$/server/js/requestHandlers.js" />
+        <option value="$PROJECT_DIR$/server/js/staticServer.js" />
         <option value="$PROJECT_DIR$/server/js/server.js" />
+        <option value="$PROJECT_DIR$/server/js/player.js" />
         <option value="$PROJECT_DIR$/client/css/layout.less" />
+        <option value="$PROJECT_DIR$/server/js/router.js" />
         <option value="$PROJECT_DIR$/client/index.html" />
+        <option value="$PROJECT_DIR$/server/js/user.js" />
+        <option value="$PROJECT_DIR$/client/js/client.js" />
         <option value="$PROJECT_DIR$/client/js/clientTCP.js" />
         <option value="$PROJECT_DIR$/server/js/socketHandlers.js" />
-        <option value="$PROJECT_DIR$/client/js/client.js" />
-        <option value="$PROJECT_DIR$/client/php/connection.php" />
-        <option value="$PROJECT_DIR$/client/js/database.js" />
+        <option value="$PROJECT_DIR$/server/data/users.txt" />
+        <option value="$PROJECT_DIR$/server/js/database.js" />
       </list>
     </option>
   </component>
@@ -198,6 +226,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -244,7 +273,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
+              <option name="myItemId" value="server" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="data" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -259,10 +292,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="php" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -284,16 +313,51 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QuickQuiz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QuickQuiz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="images" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QuickQuiz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="QuickQuiz" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="client" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="FullScreen" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Quiz" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/USBWebserver v8.5/8.5/root/QuickQuiz" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="LayoutCode.rearrangeEntriesJavaScript" value="false" />
@@ -301,12 +365,15 @@
     <property name="LayoutCode.rearrangeEntriesHTML" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alisio\Documents\GitHub\frontedWeb\QuickQuiz\client" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alisio\Documents\GitHub\frontedWeb\QuickQuiz\client" />
+      <recent name="C:\Users\alisio\Documents\GitHub\frontedWeb\QuickQuiz\client\images" />
       <recent name="C:\Users\alisio\Documents\GitHub\frontedWeb\QuickQuiz\client\js" />
       <recent name="C:\Users\alisio\Documents\GitHub\frontedWeb\QuickQuiz\client\jQuery" />
       <recent name="C:\Users\alisio\Documents\GitHub\frontedWeb\QuickQuiz\client\inc" />
-      <recent name="C:\Users\alisio\Documents\GitHub\frontedWeb\QuickQuiz\client\php" />
-      <recent name="C:\Users\alisio\Documents\GitHub\frontedWeb\QuickQuiz\client" />
     </key>
   </component>
   <component name="RunManager" selected="Node.js.server.js">
@@ -381,21 +448,21 @@
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.240625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39915523" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="PHP-CGI Server" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39915523" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -422,27 +489,20 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="203" />
+      <option name="time" value="232" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/client/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="488" max-vertical-offset="1071">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/js/client.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="122" max-vertical-offset="2210">
           <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
           <folding>
             <element signature="e#0#43#0" expanded="false" />
-            <element signature="n#!!block;n#fadeOutAnimation#0" expanded="false" />
+            <element signature="n#!!block;n#changeColor#0" expanded="false" />
             <element signature="n#!!block;n#showForm#0" expanded="false" />
+            <element signature="n#!!block;n#clickLoginApp#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -453,20 +513,19 @@
           <caret line="157" column="1" selection-start-line="157" selection-start-column="1" selection-end-line="157" selection-end-column="1" />
           <folding>
             <element signature="e#0#43#0" expanded="false" />
-            <element signature="e#420#458#0" expanded="false" />
-            <element signature="e#512#635#0" expanded="false" />
+            <element signature="e#441#479#0" expanded="false" />
+            <element signature="e#533#635#0" expanded="false" />
             <element signature="e#682#718#0" expanded="false" />
             <element signature="e#773#868#0" expanded="false" />
             <element signature="e#932#1187#0" expanded="false" />
-            <element signature="e#1241#1733#0" expanded="false" />
-            <element signature="e#1790#2282#0" expanded="false" />
-            <element signature="e#2342#2361#0" expanded="false" />
-            <element signature="e#2418#2448#0" expanded="false" />
-            <element signature="e#2509#2540#0" expanded="false" />
+            <element signature="e#1241#1961#0" expanded="false" />
+            <element signature="e#2016#2257#0" expanded="false" />
+            <element signature="e#2314#2966#0" expanded="false" />
+            <element signature="e#3026#3045#0" expanded="false" />
+            <element signature="e#3102#3132#0" expanded="false" />
+            <element signature="e#3193#3224#0" expanded="false" />
             <element signature="n#!!block;n#getQueuesFromServer#0" expanded="false" />
             <element signature="n#!!block;n#showMessage#0" expanded="false" />
-            <element signature="n#!!block;n#loginTCP#0" expanded="false" />
-            <element signature="n#!!block;n#registerTCP#0" expanded="false" />
             <element signature="n#!!block;n#createGame#0" expanded="false" />
             <element signature="n#!!block;n#joinGame#0" expanded="false" />
             <element signature="n#!!block;n#save#0" expanded="false" />
@@ -485,9 +544,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="170" max-vertical-offset="272">
           <caret line="12" column="2" selection-start-line="12" selection-start-column="2" selection-end-line="12" selection-end-column="2" />
-          <folding>
-            <element signature="n#!!doc;n#init_database#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -495,7 +551,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="4114">
           <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -503,15 +558,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1632">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1419858070674" expanded="true" signature="1734:1894" placeholder="CREATE TABLE..IF..." />
-            <marker date="1419858070674" expanded="true" signature="2160:2460" placeholder="CREATE TABLE..IF..." />
-            <marker date="1419858070674" expanded="true" signature="2730:3135" placeholder="CREATE TABLE..IF..." />
-            <marker date="1419858070674" expanded="true" signature="3392:3433" placeholder="INSERT INTO ..." />
-            <marker date="1419858070674" expanded="true" signature="3718:3780" placeholder="INSERT INTO ..." />
-            <marker date="1419858070674" expanded="true" signature="4071:4137" placeholder="SELECT name,..users..." />
-            <marker date="1419858070674" expanded="true" signature="4251:4367" placeholder="INSERT INTO ..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -519,9 +565,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1159" max-vertical-offset="1717">
           <caret line="92" column="20" selection-start-line="92" selection-start-column="15" selection-end-line="92" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#42#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -545,20 +588,19 @@
           <caret line="16" column="35" selection-start-line="16" selection-start-column="35" selection-end-line="16" selection-end-column="35" />
           <folding>
             <element signature="e#0#43#0" expanded="false" />
-            <element signature="e#420#458#0" expanded="false" />
-            <element signature="e#512#635#0" expanded="false" />
+            <element signature="e#441#479#0" expanded="false" />
+            <element signature="e#533#635#0" expanded="false" />
             <element signature="e#682#718#0" expanded="false" />
             <element signature="e#773#868#0" expanded="false" />
             <element signature="e#932#1187#0" expanded="false" />
-            <element signature="e#1241#1733#0" expanded="false" />
-            <element signature="e#1790#2282#0" expanded="false" />
-            <element signature="e#2342#2361#0" expanded="false" />
-            <element signature="e#2418#2448#0" expanded="false" />
-            <element signature="e#2509#2540#0" expanded="false" />
+            <element signature="e#1241#1961#0" expanded="false" />
+            <element signature="e#2016#2257#0" expanded="false" />
+            <element signature="e#2314#2966#0" expanded="false" />
+            <element signature="e#3026#3045#0" expanded="false" />
+            <element signature="e#3102#3132#0" expanded="false" />
+            <element signature="e#3193#3224#0" expanded="false" />
             <element signature="n#!!block;n#getQueuesFromServer#0" expanded="false" />
             <element signature="n#!!block;n#showMessage#0" expanded="false" />
-            <element signature="n#!!block;n#loginTCP#0" expanded="false" />
-            <element signature="n#!!block;n#registerTCP#0" expanded="false" />
             <element signature="n#!!block;n#createGame#0" expanded="false" />
             <element signature="n#!!block;n#joinGame#0" expanded="false" />
             <element signature="n#!!block;n#save#0" expanded="false" />
@@ -584,9 +626,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!block;n#checkUserExistsInDatabase#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -594,7 +633,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="425" max-vertical-offset="680">
           <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -625,20 +663,19 @@
           <caret line="24" column="42" selection-start-line="24" selection-start-column="42" selection-end-line="24" selection-end-column="42" />
           <folding>
             <element signature="e#0#43#0" expanded="false" />
-            <element signature="e#420#458#0" expanded="false" />
-            <element signature="e#512#635#0" expanded="false" />
+            <element signature="e#441#479#0" expanded="false" />
+            <element signature="e#533#635#0" expanded="false" />
             <element signature="e#682#718#0" expanded="false" />
             <element signature="e#773#868#0" expanded="false" />
             <element signature="e#932#1187#0" expanded="false" />
-            <element signature="e#1241#1733#0" expanded="false" />
-            <element signature="e#1790#2282#0" expanded="false" />
-            <element signature="e#2342#2361#0" expanded="false" />
-            <element signature="e#2418#2448#0" expanded="false" />
-            <element signature="e#2509#2540#0" expanded="false" />
+            <element signature="e#1241#1961#0" expanded="false" />
+            <element signature="e#2016#2257#0" expanded="false" />
+            <element signature="e#2314#2966#0" expanded="false" />
+            <element signature="e#3026#3045#0" expanded="false" />
+            <element signature="e#3102#3132#0" expanded="false" />
+            <element signature="e#3193#3224#0" expanded="false" />
             <element signature="n#!!block;n#getQueuesFromServer#0" expanded="false" />
             <element signature="n#!!block;n#showMessage#0" expanded="false" />
-            <element signature="n#!!block;n#loginTCP#0" expanded="false" />
-            <element signature="n#!!block;n#registerTCP#0" expanded="false" />
             <element signature="n#!!block;n#createGame#0" expanded="false" />
             <element signature="n#!!block;n#joinGame#0" expanded="false" />
             <element signature="n#!!block;n#save#0" expanded="false" />
@@ -657,9 +694,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="816">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!block;n#checkUserExistsInDatabase#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -667,7 +701,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="493" max-vertical-offset="680">
           <caret line="29" column="13" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -677,20 +710,19 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#43#0" expanded="false" />
-            <element signature="e#420#458#0" expanded="false" />
-            <element signature="e#512#635#0" expanded="false" />
+            <element signature="e#441#479#0" expanded="false" />
+            <element signature="e#533#635#0" expanded="false" />
             <element signature="e#682#718#0" expanded="false" />
             <element signature="e#773#868#0" expanded="false" />
             <element signature="e#932#1187#0" expanded="false" />
-            <element signature="e#1241#1733#0" expanded="false" />
-            <element signature="e#1790#2282#0" expanded="false" />
-            <element signature="e#2342#2361#0" expanded="false" />
-            <element signature="e#2418#2448#0" expanded="false" />
-            <element signature="e#2509#2540#0" expanded="false" />
+            <element signature="e#1241#1961#0" expanded="false" />
+            <element signature="e#2016#2257#0" expanded="false" />
+            <element signature="e#2314#2966#0" expanded="false" />
+            <element signature="e#3026#3045#0" expanded="false" />
+            <element signature="e#3102#3132#0" expanded="false" />
+            <element signature="e#3193#3224#0" expanded="false" />
             <element signature="n#!!block;n#getQueuesFromServer#0" expanded="false" />
             <element signature="n#!!block;n#showMessage#0" expanded="false" />
-            <element signature="n#!!block;n#loginTCP#0" expanded="false" />
-            <element signature="n#!!block;n#registerTCP#0" expanded="false" />
             <element signature="n#!!block;n#createGame#0" expanded="false" />
             <element signature="n#!!block;n#joinGame#0" expanded="false" />
             <element signature="n#!!block;n#save#0" expanded="false" />
@@ -747,27 +779,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/js/requestHandlers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0331384" vertical-offset="0" max-vertical-offset="935">
-          <caret line="1" column="18" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/js/staticServer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1037">
-          <caret line="46" column="68" selection-start-line="46" selection-start-column="68" selection-end-line="46" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/js/router.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53419596" vertical-offset="0" max-vertical-offset="782">
-          <caret line="17" column="27" selection-start-line="17" selection-start-column="27" selection-end-line="17" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/css/layout.css">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.7966728" vertical-offset="972" max-vertical-offset="1513">
@@ -790,13 +801,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/js/test.js.map">
+      <provider editor-type-id="sourcemapFileViewerProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="876">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/js/test.ts">
@@ -827,20 +838,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/js/player.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1023" max-vertical-offset="1717">
-          <caret line="78" column="8" selection-start-line="78" selection-start-column="8" selection-end-line="78" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/js/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53419596" vertical-offset="0" max-vertical-offset="541">
-          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/client/js/modernizr.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.346591" vertical-offset="2295" max-vertical-offset="16337">
@@ -848,82 +845,115 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/index.html">
+    <entry file="file://$PROJECT_DIR$/server/js/staticServer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="488" max-vertical-offset="1071">
-          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="1037">
+          <caret line="37" column="10" selection-start-line="37" selection-start-column="10" selection-end-line="37" selection-end-column="10" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/css/layout.less">
+    <entry file="file://$PROJECT_DIR$/client/php/connection.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="272" max-vertical-offset="4114">
-          <caret line="31" column="18" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
-          <folding />
+        <state vertical-scroll-proportion="-11.115385" vertical-offset="34" max-vertical-offset="2873">
+          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/js/database.js">
+    <entry file="file://$PROJECT_DIR$/client/js/database.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.036996737" vertical-offset="0" max-vertical-offset="919">
-          <caret line="2" column="3" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-          <folding />
+        <state vertical-scroll-proportion="0.22198041" vertical-offset="0" max-vertical-offset="919">
+          <caret line="14" column="2" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/js/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.53419596" vertical-offset="0" max-vertical-offset="541">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/js/game.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6648531" vertical-offset="0" max-vertical-offset="1717">
+        <state vertical-scroll-proportion="2.8909428" vertical-offset="0" max-vertical-offset="1751">
           <caret line="92" column="20" selection-start-line="92" selection-start-column="15" selection-end-line="92" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/css/layout.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="408" max-vertical-offset="4182">
+          <caret line="24" column="2" selection-start-line="24" selection-start-column="2" selection-end-line="24" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="93" max-vertical-offset="1088">
+          <caret line="21" column="29" selection-start-line="21" selection-start-column="29" selection-end-line="21" selection-end-column="29" />
           <folding>
-            <element signature="e#0#42#0" expanded="false" />
+            <element signature="n#style#0;n#canvas#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/js/router.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5179543" vertical-offset="0" max-vertical-offset="919">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/js/player.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3155604" vertical-offset="985" max-vertical-offset="1904">
+          <caret line="75" column="15" selection-start-line="75" selection-start-column="15" selection-end-line="75" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/js/requestHandlers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.297062" vertical-offset="16" max-vertical-offset="935">
+          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/client.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1258">
-          <caret line="21" column="57" selection-start-line="21" selection-start-column="57" selection-end-line="21" selection-end-column="57" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="557" max-vertical-offset="1564">
+          <caret line="163" column="38" selection-start-line="163" selection-start-column="38" selection-end-line="163" selection-end-column="38" />
           <folding>
             <element signature="e#0#43#0" expanded="false" />
-            <element signature="n#!!block;n#fadeOutAnimation#0" expanded="false" />
+            <element signature="n#!!block;n#changeColor#0" expanded="false" />
             <element signature="n#!!block;n#showForm#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/js/socketHandlers.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="458" max-vertical-offset="2601">
-          <caret line="45" column="7" selection-start-line="45" selection-start-column="7" selection-end-line="45" selection-end-column="7" />
-          <folding>
-            <element signature="n#!!block;n#checkUserExistsInDatabase#0" expanded="false" />
+            <element signature="n#!!block;n#clickLoginApp#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/js/clientTCP.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="697">
-          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="153" max-vertical-offset="850">
+          <caret line="64" column="54" selection-start-line="64" selection-start-column="54" selection-end-line="64" selection-end-column="54" />
           <folding>
             <element signature="e#0#43#0" expanded="false" />
-            <element signature="e#420#458#0" expanded="false" />
-            <element signature="e#512#635#0" expanded="false" />
+            <element signature="e#441#479#0" expanded="false" />
+            <element signature="e#533#635#0" expanded="false" />
             <element signature="e#682#718#0" expanded="false" />
             <element signature="e#773#868#0" expanded="false" />
             <element signature="e#932#1187#0" expanded="false" />
-            <element signature="e#1241#1733#0" expanded="false" />
-            <element signature="e#1790#2282#0" expanded="false" />
-            <element signature="e#2342#2361#0" expanded="false" />
-            <element signature="e#2418#2448#0" expanded="false" />
-            <element signature="e#2509#2540#0" expanded="false" />
+            <element signature="e#1241#1961#0" expanded="false" />
+            <element signature="e#2016#2257#0" expanded="false" />
+            <element signature="e#2314#2966#0" expanded="false" />
+            <element signature="e#3026#3045#0" expanded="false" />
+            <element signature="e#3102#3132#0" expanded="false" />
+            <element signature="e#3193#3224#0" expanded="false" />
             <element signature="n#!!block;n#getQueuesFromServer#0" expanded="false" />
             <element signature="n#!!block;n#showMessage#0" expanded="false" />
-            <element signature="n#!!block;n#loginTCP#0" expanded="false" />
-            <element signature="n#!!block;n#registerTCP#0" expanded="false" />
             <element signature="n#!!block;n#createGame#0" expanded="false" />
             <element signature="n#!!block;n#joinGame#0" expanded="false" />
             <element signature="n#!!block;n#save#0" expanded="false" />
@@ -938,29 +968,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/php/connection.php">
+    <entry file="file://$PROJECT_DIR$/node_modules/socket.io/lib/socket.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.769231" vertical-offset="0" max-vertical-offset="2856">
-          <caret line="18" column="33" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="33" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="1979" max-vertical-offset="7412">
+          <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/js/socketHandlers.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="1598">
+          <caret line="78" column="28" selection-start-line="78" selection-start-column="28" selection-end-line="78" selection-end-column="28" />
           <folding>
-            <marker date="1419858070674" expanded="true" signature="1734:1894" placeholder="CREATE TABLE..IF..." />
-            <marker date="1419858070674" expanded="true" signature="2160:2460" placeholder="CREATE TABLE..IF..." />
-            <marker date="1419858070674" expanded="true" signature="2730:3135" placeholder="CREATE TABLE..IF..." />
-            <marker date="1419858070674" expanded="true" signature="3392:3433" placeholder="INSERT INTO ..." />
-            <marker date="1419858070674" expanded="true" signature="3718:3780" placeholder="INSERT INTO ..." />
-            <marker date="1419858070674" expanded="true" signature="4071:4137" placeholder="SELECT name,..users..." />
-            <marker date="1419858070674" expanded="true" signature="4251:4367" placeholder="INSERT INTO ..." />
+            <element signature="e#1325#1627#0" expanded="false" />
+            <element signature="e#1688#1768#0" expanded="false" />
+            <element signature="e#1986#2098#0" expanded="false" />
+            <element signature="e#2158#2204#0" expanded="false" />
+            <element signature="e#2267#2356#0" expanded="false" />
+            <element signature="e#2415#2449#0" expanded="false" />
+            <element signature="e#2510#2598#0" expanded="false" />
+            <element signature="e#2656#2745#0" expanded="false" />
+            <element signature="n#!!block;n#addToReady#0" expanded="false" />
+            <element signature="n#!!block;n#joinQueue#0" expanded="false" />
+            <element signature="n#!!block;n#getQuestion#0" expanded="false" />
+            <element signature="n#!!block;n#getQueues#0" expanded="false" />
+            <element signature="n#!!block;n#createGame#0" expanded="false" />
+            <element signature="n#!!block;n#replaceUser#0" expanded="false" />
+            <element signature="n#!!block;n#removePlayer#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/client/js/database.js">
+    <entry file="file://$PROJECT_DIR$/server/js/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5734494" vertical-offset="0" max-vertical-offset="919">
-          <caret line="33" column="30" selection-start-line="33" selection-start-column="30" selection-end-line="33" selection-end-column="30" />
-          <folding>
-            <element signature="n#!!doc;n#init_database#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1513">
+          <caret line="5" column="61" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/data/users.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="136">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/js/database.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6913124" vertical-offset="0" max-vertical-offset="612">
+          <caret line="22" column="60" selection-start-line="22" selection-start-column="60" selection-end-line="22" selection-end-column="60" />
+          <folding />
         </state>
       </provider>
     </entry>

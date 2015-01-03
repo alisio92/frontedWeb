@@ -35,12 +35,12 @@ var staticServer = (function () {
 
     var extensions = {
         ".html": "text/html",
+        //".php": "application/php",
         ".css": "text/css",
         ".js": "application/javascript",
         ".png": "image/png",
         ".gif": "image/gif",
-        ".jpg": "image/jpeg",
-        ".php": "application/php"
+        ".jpg": "image/jpeg"
     };
 
     var init = function (router, handlers, httpIP, httpPort, socketHandlers) {

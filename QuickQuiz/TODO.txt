@@ -1,5 +1,4 @@
 records in database invoegen
-php laten uitvoeren
 wanneer client afsluit uit list halen
 background image
 admin pagina met records invoegen, kicken en gegevens opvragend
@@ -9,7 +8,6 @@ chat
 facebook
 user pagina, img toevoegen
 specrunner
-logout
 uit server halen als user weg is
 awnsers buttons
 als speler wegvalt in game, game stoppen

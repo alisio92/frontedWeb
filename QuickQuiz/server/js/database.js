@@ -1,28 +1,31 @@
 /**
  * Created by alisio on 15/12/2014.
  */
-//var query = require("./../jQuery/jquery-2.1.1.js");
-var query = require("./../../node_modules/jquery/dist/cdn/jquery-2.1.1.min.js");
+var lineReader = require('line-reader');
+var fs = require('fs');
+var User = require("./user.js");
+var filePath = './../data/users.txt';
 var Database = (function () {
     var init = function () {
-        $.ajax({
-            type: "POST",
-            url: './../php/connection.php',
-            dataType: 'php',
-            data: {functionname: 'init_database', arguments: []},
-
-            success: function (obj, textstatus) {
-                if (!('error' in obj)) {
-                    yourVariable = obj.result;
-                }
-                else {
-                    console.log(obj.error);
-                }
+        lineReader.open(filePath, function(reader) {
+            reader.nextLine(function(line) {});
+            while (reader.hasNextLine()) {
+                reader.nextLine(function(line) {
+                    var row = line.split(":");
+                    u = new User.init(row[0], row[1], row[2], row[3], row[4], row[5]);
+                    User.addUser(u);
+                });
             }
         });
     };
+    var addUser = function(user){
+        User.addUser(user);
+        fs.appendFile(filePath, "\r\n" + User.users.length-1 + ":" + user.name + ":" + user.rank + ":" + user.password + ":" + user.img + ":" + user.score, function (err) {
+        });
+    };
     return {
-        init: init
+        init: init,
+        addUser: addUser
     };
 })();
 module.exports = Database;

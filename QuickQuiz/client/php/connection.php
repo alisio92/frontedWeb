@@ -5,11 +5,11 @@
  * Date: 23/11/2014
  * Time: 13:41
  */
-$ip = "localhost";
-$port = "3307";
-$user = "root";
-$pass = "usbw";
-$database = "Quiz";
+$ip = "mysql10.000webhost.com";
+$port = "";
+$user = "a8215739_alisio";
+$pass = "rrf2j2xm";
+$database = "a8215739_Quiz";
 $init = false;
 $createUser = false;
 $checkUserExists = false;
@@ -43,14 +43,15 @@ function get_connect(){
 
 function get_connect_database(){
     global $ip, $port, $user, $pass, $database;
-    $conn = new mysqli($ip, $user, $pass, $database, $port);
+    $conn = new mysqli($ip, $user, $pass, $database);
     if ($conn->connect_error) die('Connect Error (' . $conn->connect_errno . ') ' . $conn->connect_error);
     return $conn;
 }
 
 function init_database(){
+    global $database;
     $conn = get_connect();
-    $sql = 'CREATE Database IF NOT EXISTS Quiz';
+    $sql = 'CREATE Database IF NOT EXISTS ' + $database;
     $retval = mysql_query( $sql, $conn );
     if(! $retval ) die('Could not create database: ' . mysql_error());
     mysql_close($conn);
@@ -58,7 +59,7 @@ function init_database(){
     create_users_tables();
     create_question_tables();
     create_rank("admin", "1");
-    create_rank("user", "0");
+    create_rank("User", "0");
     echo true;
 }
 

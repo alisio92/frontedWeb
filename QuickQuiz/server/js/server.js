@@ -2,7 +2,7 @@
  * Created by alisio on 30/11/2014.
  */
 var port = 4000;
-var ip = "localhost";
+var ip = "192.168.1.2";
 var requestHandlers = require("./requestHandlers.js");
 var router = require("./router.js")
 var socketHandlers = require("./socketHandlers.js");
@@ -15,5 +15,5 @@ var staticServer = require("./staticServer.js");
 var handlers = {}
 handlers["/"] = requestHandlers.root;
 
-//database.init();
+database.init();
 staticServer.init(router, handlers, ip, port, socketHandlers);

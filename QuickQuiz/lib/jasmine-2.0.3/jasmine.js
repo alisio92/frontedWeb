@@ -556,7 +556,7 @@ getJasmineRequireObj().Env = function(j$) {
       }
 
       if (obj[methodName] && j$.isSpy(obj[methodName])) {
-        //TODO?: should this return the current spy? Downside: may cause user confusion about spy state
+        //TODO?: should this return the current spy? Downside: may cause User confusion about spy state
         throw new Error(methodName + ' has already been spied upon');
       }
 

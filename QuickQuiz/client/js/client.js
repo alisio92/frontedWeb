@@ -4,6 +4,10 @@
 document.addEventListener("DOMContentLoaded", init);
 var showLogin = false;
 var showRegister = false;
+var originalPixels = null;
+var currentPixels = null;
+var canvas = document.getElementById('myCanvas');
+var ctx = canvas.getContext("2d");
 var props = 'transform WebkitTransform MozTransform OTransform msTransform'.split(' '),
     prop,
     el = document.createElement('div');
@@ -22,8 +26,35 @@ function init() {
     var goToQueue = document.getElementById("goToQueue");
     goToQueue.addEventListener("click", clickgoToQueue);
     fadeOutAnimation();
-
-    var colorCircle = document.getElementById('test');
+    changeColor();
+}
+function changeColor(){
+    var canvas = document.getElementById('myCanvas');
+    var ctx = canvas.getContext('2d');
+    var width = image.width;
+    var height = image.height;
+    canvas.width = width;
+    canvas.height = height;
+    ctx.drawImage(image, 0, 0);
+    var imageData = ctx.getImageData(0, 0, width, height);
+    var pixelData = imageData.data;
+    var bytesPerPixel = 4;
+    for(var y = 0; y < height; y++) {
+        for(var x = 0; x < width; x++) {
+            if(y < height/2) {
+                var startIdx = (y * bytesPerPixel * width) + (x * bytesPerPixel);
+                var red = pixelData[startIdx];
+                var green = pixelData[startIdx + 1];
+                var blue = pixelData[startIdx + 2];
+                var grayScale = (red * 0.3) + (green * 0.59) + (blue * .11);
+                pixelData[startIdx] = grayScale;
+                pixelData[startIdx + 1] = grayScale;
+                pixelData[startIdx + 2] = grayScale;
+            }
+        }
+    }
+    ctx.putImageData(imageData, 0, 0);
+    image.src = "nature.jpg";
 }
 function clickgoToQueue() {
     if (registeredPlayer) {
@@ -69,7 +100,8 @@ function fadeOutAnimation() {
 function showForm() {
     var Name, Form = "";
     if (showRegister) Name = "Registreren";
-    if (showLogin) Name = "Login";
+    if (showLogin && !registeredPlayer) Name = "Login";
+    if (showLogin && registeredPlayer) Name = "Logout";
     if (showRegister || (showLogin && !registeredPlayer)) {
         Form += '<div id="window">';
         Form += '<form method="post">';
@@ -80,11 +112,17 @@ function showForm() {
         Form += '<label for="pass1">Paswoord:</label>';
         Form += '<input type="password" name="pass1" id="pass1" placeholder="Vul hier uw paswoord in" title="pass1" required/>';
     }
+    if (showLogin && registeredPlayer) {
+        Form += '<div id="window">';
+        Form += '<form method="post">';
+        Form += '<fieldset><legend>' + Name + '</legend></fieldset>';
+        Form += '<button type="button" id="close">X</button>';
+    }
     if (showRegister) {
         Form += '<label for="pass2">Paswoord Controle:</label>';
         Form += '<input type="password" name="pass2" id="pass2" placeholder="Vul hier opnieuw uw paswoord in" title="pass2" required/>';
     }
-    if (showRegister || (showLogin && !registeredPlayer)) {
+    if (showRegister || (showLogin)) {
         Form += '<button type="button" id="' + Name + 'Button" name="' + Name + 'Button">' + Name + '</button>';
         Form += '</form>';
         Form += '</div>';
@@ -99,6 +137,10 @@ function showForm() {
         var login = document.getElementById("LoginButton");
         login.addEventListener("click", clickLoginApp);
     }
+    if (showLogin && registeredPlayer) {
+        var logout = document.getElementById("LogoutButton");
+        logout.addEventListener("click", clickLogoutApp);
+    }
     if (showRegister) {
         var Register = document.getElementById("RegistrerenButton");
         Register.addEventListener("click", clickRegisterApp);
@@ -109,10 +151,17 @@ function clickLoginApp() {
     var pass1 = document.getElementById("pass1");
     loginTCP(name.value, pass1.value);
 }
+function clickLogoutApp() {
+    logoutTCP();
+}
 function clickRegisterApp() {
     var name = document.getElementById("name");
     var pass1 = document.getElementById("pass1");
     var pass2 = document.getElementById("pass2");
     if (pass1.value == pass2.value) registerTCP(name.value, pass1.value);
-    else alert("pass1 != pass2");
+    else {
+        document.getElementById("pass1").style.borderColor = "red";
+        document.getElementById("pass2").style.borderColor = "red";
+        //alert("pass1 != pass2");
+    }
 }

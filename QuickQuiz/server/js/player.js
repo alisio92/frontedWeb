@@ -72,6 +72,9 @@ var Player = (function () {
     var addUser = function (player) {
         players.push(player);
     };
+    var removePlayer = function (player) {
+        players.splice(player.id, 1);
+    };
     var replaceUnregisteredPlayerWithRegisteredPlayer = function (player) {
         players[player.id] = player;
     };
@@ -79,15 +82,23 @@ var Player = (function () {
         if (players.indexOf(player) > -1) return true;
         else return false;
     };
-    var getPlayer = function(id){
-        return players[id];
-    }
+    var getPlayer = function(player){
+        return players[player.id];
+    };
+    var getPlayerById = function(id){
+        for(i = 0; i< players.length;i++){
+            if(players[i].id == id) return players[i];
+        }
+        return null;
+    };
     return {
         init: init,
         addUser: addUser,
         replaceUnregisteredPlayerWithRegisteredPlayer: replaceUnregisteredPlayerWithRegisteredPlayer,
         checkIfExists: checkIfExists,
         getPlayer: getPlayer,
+        removePlayer: removePlayer,
+        getPlayerById: getPlayerById,
         players: players
     }
 })();

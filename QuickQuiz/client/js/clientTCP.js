@@ -1,7 +1,7 @@
 /**
  * Created by alisio on 30/11/2014.
  */
-var socket = io.connect("http://localhost:4000");
+var socket = io.connect("http://192.168.1.2:4000");
 var inpClient = document.getElementById('name');
 var messages = document.getElementById('messages');
 var btn = document.getElementById('send');
@@ -10,13 +10,13 @@ var playerId = -1;
 var registeredPlayer = false;
 var propTCP = null;
 var gameInstance = -1;
+var admin = false;
 
 socket.on("serverMessage", function (json) {
     showMessage(JSON.parse(json));
 });
 socket.on("serverGiveNumberUsers", function (json) {
     document.getElementById("online").innerHTML = "Aantal gebruikers online: " + JSON.parse(json);
-    init_database();
 });
 socket.on("serverClientId", function (json) {
     playerId = JSON.parse(json);
@@ -37,33 +37,48 @@ socket.on("serverQueuesInitiatedMessage", function (content) {
 socket.on("serverLoginMessage", function (content) {
     var response = content;
     var res = response.split(":");
-    if (res[0]) {
+    if (res[0] == "true") {
         registeredPlayer = res[0];
         document.getElementById("login").innerHTML = res[1];
         closeButton();
+    }else{
+        document.getElementById("name").style.borderColor = "red";
+        document.getElementById("pass1").style.borderColor = "red";
     }
-    if (res[2]) {
+    if (res[2] == "true" && !admin) {
+        admin = true;
         var ul = document.getElementById("mainNav").innerHTML;
-        var newUl = '<li title="Ga naar Admin pagina" alt="Ga naar Admin pagina">Admin</li>';
+        var newUl = '<li id="admin" title="Ga naar Admin pagina" alt="Ga naar Admin pagina">Admin</li>';
         newUl += ul;
         document.getElementById("mainNav").innerHTML = newUl;
-    }
+    }else admin = false;
     initButtons();
+});
+socket.on("serverLogoutMessage", function (content) {
+    if (content) {
+        registeredPlayer = false;
+        if(document.getElementById("admin")!=null) document.getElementById("admin").remove();
+        document.getElementById("login").innerHTML = "login";
+        closeButton();
+    }
 });
 socket.on("serverRegisterMessage", function (content) {
     var response = content;
     var res = response.split(":");
-    if (res[0]) {
+    if (res[0] == "true") {
         registeredPlayer = res[0];
         document.getElementById("login").innerHTML = res[1];
         closeButton();
+    }else{
+        document.getElementById("name").style.borderColor = "red";
     }
-    if (res[2]) {
+    if (res[2] == "true" && !admin) {
+        admin = true;
         var ul = document.getElementById("mainNav").innerHTML;
-        var newUl = '<li title="Ga naar Admin pagina" alt="Ga naar Admin pagina">Admin</li>';
+        var newUl = '<li id="admin" title="Ga naar Admin pagina" alt="Ga naar Admin pagina">Admin</li>';
         newUl += ul;
         document.getElementById("mainNav").innerHTML = newUl;
-    }
+    }else admin = false;
     initButtons();
 });
 socket.on("serverQueueIsFullMessage", function (content) {
@@ -87,6 +102,9 @@ function showMessage(obj) {
 }
 function loginTCP(name, pass) {
     socket.emit('clientLoginMessage', playerId + ":" + name + ":" + pass);
+}
+function logoutTCP(name, pass) {
+    socket.emit('clientLogoutMessage', playerId);
 }
 function registerTCP(name, pass) {
     socket.emit('clientRegisterMessage', playerId + ":" + name + ":" + pass);

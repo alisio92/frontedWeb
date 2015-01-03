@@ -4,6 +4,8 @@
 var domain = require("domain");
 var player = require("./player.js");
 var game = require("./game.js");
+var user = require("./user.js");
+var database = require("./database.js");
 
 var getHandlers = function (httpServer) {
     var socketDomain = domain.create();
@@ -42,12 +44,16 @@ function retrievedMessage(socket) {
 
     socket.on('clientRegisterMessage', function (content) {
         var res = content.split(":");
-        replaceUser(socket, res[0], res[1]);
+        createUser(socket, res[0], res[1], res[2]);
     });
 
     socket.on('clientLoginMessage', function (content) {
         var res = content.split(":");
-        replaceUser(socket, res[0], res[1]);
+        checkUserExistsInDatabase(socket, res[0], res[1], res[2]);
+    });
+
+    socket.on('clientLogoutMessage', function (content) {
+        removePlayer(socket, content);
     });
     socket.on('clientCreateGameMessage', function (content) {
         var res = content.split(":");
@@ -65,6 +71,19 @@ function retrievedMessage(socket) {
         addToReady(socket, res[0], res[1]);
     });
 }
+function createUser(socket, id, name, pass){
+    var address = socket.handshake.address;
+    var row = user.checkIfNameExists(name);
+    if(row == -1){
+        var u = new user.init(id, name, 1, pass, "", 0);
+        database.addUser(u);
+        var p = new player.init(socket, id, address, name, null, true, false);
+        player.replaceUnregisteredPlayerWithRegisteredPlayer(p);
+        var admin = false;
+        socket.emit('serverRegisterMessage', true + ":" + name + ":" + admin);
+    } else socket.emit('serverRegisterMessage', false + ":" + name + ":" + false);
+}
+
 function addToReady(socket, id, instance){
     var p = player.getPlayer(id);
     var playerQueued = game.checkPlayerIsQueued(instance, p);
@@ -136,7 +155,6 @@ function createGame(socket, id, amount){
 
 function replaceUser(socket, id, name) {
     var address = socket.handshake.address;
-    //create user database
     var admin = false;
     var p = new player.init(socket, id, address, name, null, true, false);
     player.replaceUnregisteredPlayerWithRegisteredPlayer(p);
@@ -145,12 +163,23 @@ function replaceUser(socket, id, name) {
 
 function checkUserExistsInDatabase(socket, id, name, pass) {
     var address = socket.handshake.address;
-    //check if user exists
-    var admin = true;
+    var row = user.checkIfExists(name, pass);
+    if(row >=0){
+        var p = new player.init(socket, id, address, name, null, true, false);
+        player.replaceUnregisteredPlayerWithRegisteredPlayer(p);
+        var admin = false;
+        if(user.getUser(row).rank == 0) admin = true;
+        socket.emit('serverLoginMessage', true + ":" + name + ":" + admin);
+    } else socket.emit('serverLoginMessage', false + ":" + name + ":" + false);
+}
 
-    var p = new player.init(socket, id, address, name, null, true, false);
-    player.replaceUnregisteredPlayerWithRegisteredPlayer(p);
-    socket.emit('serverLoginMessage', true + ":" + name + ":" + admin);
+function removePlayer(socket, id){
+    var p = player.getPlayerById(id);
+    if(p!=null){
+        player.removePlayer(p);
+        socket.emit('serverLogoutMessage', true);
+    }
+    else socket.emit('serverLogoutMessage', false);
 }
 
 module.exports.getHandlers = getHandlers;
