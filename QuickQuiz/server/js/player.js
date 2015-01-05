@@ -3,7 +3,7 @@
  */
 var Player = (function () {
     var players = new Array();
-    var init = function (socket, id, ip, name, img, registered, admin) {
+    var init = function (socket, id, ip, name, img, registered, admin, online) {
         this.socket = socket;
         this.id = id;
         this.ip = ip;
@@ -12,6 +12,7 @@ var Player = (function () {
         this.registered = registered;
         this.admin = admin;
         this.score = 0;
+        this.online = online;
     };
     init.prototype = {
         get Socket() {
@@ -67,6 +68,12 @@ var Player = (function () {
         },
         set Score(v) {
             this.score = v
+        },
+        get Online() {
+            return this.online
+        },
+        set Online(v) {
+            this.online = v
         }
     };
     var addUser = function (player) {
@@ -76,7 +83,9 @@ var Player = (function () {
         players.splice(player.id, 1);
     };
     var replaceUnregisteredPlayerWithRegisteredPlayer = function (player) {
-        players[player.id] = player;
+        for(i = 0; i< players.length;i++){
+            if (players[i].socket == player.socket) players[i] = player;
+        }
     };
     var checkIfExists = function (player) {
         if (players.indexOf(player) > -1) return true;
@@ -87,7 +96,25 @@ var Player = (function () {
     };
     var getPlayerById = function(id){
         for(i = 0; i< players.length;i++){
-            if(players[i].id == id) return players[i];
+            if(typeof players[i] !== 'undefined'){
+                if(players[i].id == id) return players[i];
+            };
+        }
+        return null;
+    };
+    var getPlayerByName= function(name){
+        for(i = 0; i< players.length;i++){
+            if(typeof players[i] !== 'undefined'){
+                if(players[i].name == name) return players[i];
+            };
+        }
+        return null;
+    };
+    var getID = function (id){
+        for(i = 0; i< players.length;i++){
+            if(typeof players[i] !== 'undefined') {
+                if (players[i].id == id) return i;
+            }
         }
         return null;
     };
@@ -99,6 +126,8 @@ var Player = (function () {
         getPlayer: getPlayer,
         removePlayer: removePlayer,
         getPlayerById: getPlayerById,
+        getPlayerByName: getPlayerByName,
+        getID: getID,
         players: players
     }
 })();

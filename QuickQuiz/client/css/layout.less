@@ -1,3 +1,4 @@
+@linkColor = #0099CC;
 * {
   margin: 0px;
   padding: 0px;
@@ -47,13 +48,13 @@ nav {
       float: left;
       list-style-type: none;
       width: 100px;
-      color: #0099CC;
+      color: @linkColor;
       font-size: 15px;
       > a {
-        color: #0099CC;
+        color: @linkColor;
       }
       > a:hover {
-        color: #0099CC;
+        color: @linkColor;
       }
     }
     > li:hover {
@@ -92,9 +93,11 @@ p {
       margin: 0px 0px 10px 25px;
     }
     > label, > fieldset {
+      float: left;
       margin-left: 5px;
       color: #ffffff;
       font-size: 16px;
+      width: 300px;
     }
     > fieldset {
       margin-top: 10px;
@@ -105,6 +108,31 @@ p {
       float: right;
       margin: -30px 10px 0px 0px;
     }
+    > #formMessage{
+      color:red;
+    }
+  }
+}
+
+#adminForm{
+  > input, label{
+    float: left;
+    width: 100%;
+  }
+}
+
+#joinMessage {
+  position: absolute;
+  left: 0px;
+  margin: 10px 0px 0px 10px;
+  background-color: #000000;
+  width: 300px;
+  > input{
+    width: 250px;
+    margin: 0px 0px 10px 25px;
+  }
+  > p {
+    margin-left: 5px;
   }
 }
 
@@ -113,10 +141,12 @@ p {
   margin-top: 45px;
 }
 
-#goToQueue {
+#goToQueue , #singleQueue{
   z-index: 1;
-  margin-top: 10px;
-  width: 90px;
+  margin: 10px 0px 0px 10px;
+  width: 140px;
+  float: left;
+  visibility: hidden;
 }
 
 #queue {
@@ -236,6 +266,38 @@ p {
   transform: rotateX(-90deg) rotate(180deg) translateZ(300px);
 }
 
-.error{
+.error, #errorMessage{
   color: red;
+}
+#image, #myCanvas{
+  display: none;
+}
+#gameQuestion{
+  > input{
+    float: left;
+    width: 100%;
+  }
+}
+#chat{
+  float: left;
+  width: 200px;
+  height: 100%;
+  margin: -14px 0px 0px 40px;
+  > #chatText{
+    padding-left: 10px;
+    height: 450px;
+    font-size: 12px;
+  }
+}
+footer{
+  margin-top: -40px;
+  width: 960px;
+  > nav{
+    > ul{
+      > li {
+        width: 200px;
+        float: left;
+      }
+    }
+  }
 }

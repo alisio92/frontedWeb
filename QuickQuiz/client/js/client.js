@@ -25,8 +25,11 @@ function init() {
     login.addEventListener("click", clickLoginWindow);
     var goToQueue = document.getElementById("goToQueue");
     goToQueue.addEventListener("click", clickgoToQueue);
+    var goToQueueSingle = document.getElementById("singleQueue");
+    goToQueueSingle.addEventListener("click", clickgoToQueueSingle);
     fadeOutAnimation();
-    changeColor();
+    //changeColor();
+    propTCP = prop;
 }
 function changeColor(){
     var canvas = document.getElementById('myCanvas');
@@ -56,9 +59,13 @@ function changeColor(){
     ctx.putImageData(imageData, 0, 0);
     image.src = "nature.jpg";
 }
+function clickgoToQueueSingle(){
+    if (registeredPlayer) {
+        createGame(1);
+    }
+}
 function clickgoToQueue() {
     if (registeredPlayer) {
-        propTCP = prop;
         getQueuesFromServer();
     }
 }
@@ -107,6 +114,7 @@ function showForm() {
         Form += '<form method="post">';
         Form += '<fieldset><legend>' + Name + '</legend></fieldset>';
         Form += '<button type="button" id="close">X</button>';
+        Form += '<label id="formMessage"></label>';
         Form += '<label for="name">Naam:</label>';
         Form += '<input type="text" name="name" id="name" title="name" placeholder="Vul hier uw naam in" required/>';
         Form += '<label for="pass1">Paswoord:</label>';
@@ -117,6 +125,7 @@ function showForm() {
         Form += '<form method="post">';
         Form += '<fieldset><legend>' + Name + '</legend></fieldset>';
         Form += '<button type="button" id="close">X</button>';
+        Form += '<label id="formMessage" class="error"></label>';
     }
     if (showRegister) {
         Form += '<label for="pass2">Paswoord Controle:</label>';
@@ -130,6 +139,8 @@ function showForm() {
     document.getElementById("registration").innerHTML = Form;
     if (showRegister || (showLogin && !registeredPlayer)) {
         document.getElementById("name").focus();
+    }
+    if(showLogin || showRegister){
         var close = document.getElementById("close");
         close.addEventListener("click", closeButton);
     }
@@ -158,10 +169,23 @@ function clickRegisterApp() {
     var name = document.getElementById("name");
     var pass1 = document.getElementById("pass1");
     var pass2 = document.getElementById("pass2");
-    if (pass1.value == pass2.value) registerTCP(name.value, pass1.value);
+    if (pass1.value == pass2.value) {
+        if(name.value.length >= 2){
+            if(pass1.value.length >= 6) registerTCP(name.value, pass1.value);
+            else{
+                document.getElementById("pass1").style.borderColor = "red";
+                document.getElementById("formMessage").innerHTML = "Wachtwoord moet minstens 6 karakters hebben.";
+            }
+        }
+        else {
+            document.getElementById("name").style.borderColor = "red";
+            document.getElementById("formMessage").innerHTML = "Naam moet minstens 2 karakters hebben.";
+        }
+    }
     else {
         document.getElementById("pass1").style.borderColor = "red";
         document.getElementById("pass2").style.borderColor = "red";
+        document.getElementById("formMessage").innerHTML = "Wachtwoorden komen niet overeen.";
         //alert("pass1 != pass2");
     }
 }

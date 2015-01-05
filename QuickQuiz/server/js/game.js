@@ -1,6 +1,7 @@
 /**
  * Created by alisio on 6/12/2014.
  */
+var Question = require("./question.js");
 var Game = (function () {
     var max = 10;
     var id = -1;
@@ -18,6 +19,9 @@ var Game = (function () {
         var playersreadyList = new Array();
         this.playersReady = playersreadyList;
         this.amount = amount;
+        this.playing = false;
+        this.timer = 120;
+        this.questions = getQuestions();
         return true;
     };
     init.prototype = {
@@ -38,16 +42,53 @@ var Game = (function () {
         },
         set PlayersReady(v) {
             this.playersReady = v
+        },
+        get Playing() {
+            return this.playing
+        },
+        set Playing(v) {
+            this.playing = v
+        },
+        get Timer() {
+            return this.timer
+        },
+        set Timer(v) {
+            this.timer = v
+        },
+        get Questions() {
+            return this.questions
+        },
+        set Questions(v) {
+            this.questions = v
         }
+    };
+    var getQuestions = function(){
+        var questions = [];
+        var aantal = 10;
+        var numbers = [];
+        for(i = 0; i < aantal;i++){
+            var index = Math.floor((Math.random() * Question.questions.length-1));
+            while(numbers.indexOf(index)>=0){
+                index = Math.floor((Math.random() * Question.questions.length-1));
+            }
+            numbers.push(index);
+            questions.push(Question.questions[index]);
+        }
+        return questions;
     };
     var addGame = function (game) {
         games.push(game);
+    };
+    var removeGame = function(id){
+        games.splice(id, 1);
     };
     var joinPlayerToGame = function (player, id) {
         if(games[id].players.length < games[id].amount) games[id].players.push(player);
     };
     var checkIfQueueIsFull = function(id){
-        if(games[id].players.length == games[id].amount) return true;
+        if(typeof games[id].players !== 'undefined') {
+            if (games[id].players.length == games[id].amount) return true;
+        }
         else return false;
     };
     var getSocketsPlayers = function(id){
@@ -60,6 +101,14 @@ var Game = (function () {
         if (playersPlaying.indexOf(player) > -1) return true;
         else return false;
     };
+    var checkIfPlayerIsPlayingById = function (id) {
+        for(i = 0;i< playersPlaying.length;i++){
+            if(typeof playersPlaying[i] !== 'undefined') {
+                if (playersPlaying[i].id == id) return true;
+            }
+        }
+        return false;
+    };
     var addPlayerToReady = function (id, player) {
         games[id].playersReady.push(player);
     };
@@ -68,11 +117,33 @@ var Game = (function () {
         else return false;
     };
     var checkEveryoneReady = function(id){
-        if(games[id].playersReady.length == games[id].amount) return true;
+        if(typeof games[id] !== 'undefined') {
+            if (games[id].playersReady.length == games[id].amount) return true;
+            else return false;
+        }
+        else return false;
+    };
+    var checkEveryoneJoined = function(id){
+        if(typeof games[id] !== 'undefined') {
+            if (games[id].players.length == games[id].amount) return true;
+            else return false;
+        }
         else return false;
     };
     var getId = function(){
         return id;
+    };
+    var removePlayerFromGame = function(player){
+        var index = playersPlaying.indexOf(player);
+        if(index >=0) {
+            playersPlaying.splice(index, 1);
+            for(i = 0; i < games.length;i++){
+                var index2 = games[i].players.indexOf(player);
+                games[i].players.splice(index2, 1);
+                var index3 = games[i].playersReady.indexOf(player);
+                games[i].playersReady.splice(index3, 1);
+            }
+        }
     };
     return {
         Game: Game,
@@ -87,8 +158,12 @@ var Game = (function () {
         playersPlaying: playersPlaying,
         checkPlayerIsQueued: checkPlayerIsQueued,
         checkEveryoneReady: checkEveryoneReady,
+        checkIfPlayerIsPlayingById: checkIfPlayerIsPlayingById,
+        checkEveryoneJoined: checkEveryoneJoined,
+        removeGame: removeGame,
         games: games,
         addGame: addGame,
+        removePlayerFromGame: removePlayerFromGame,
         id: id,
         getId: getId
     };

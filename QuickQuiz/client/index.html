@@ -16,9 +16,10 @@
     </nav>
 </header>
 <div id="registration"></div>
+<div id="joinMessage"></div>
 <div id="wrapper">
     <div id="content">
-        <img id="image" src="nature.jpg">
+        <img id="image" src="/images/0.jpg">
         <canvas id="myCanvas" style="border:1px solid #d3d3d3;">
             Your browser does not support the HTML5 canvas tag.
         </canvas>
@@ -28,15 +29,26 @@
                 </div>
                 <div class="face two">
                     <p>Je moet eerst inloggen of registreren om te kunnen spelen.</p>
-                    <p id="goToQueue" class="pButton">Spelen</p>
+                    <p id="singleQueue" class="pButton">Single Player</p>
+                    <p id="goToQueue" class="pButton">Multi Player</p>
+                    <div id="chat">
+                        <textarea id="chatText" readonly>
+                            At w3schools.com you will learn how to make a website.
+                            We offer free tutorials in all web development technologies.
+                        </textarea>
+                        <input type="text" id="chatinput"/>
+                        <input type="button" value="send" id="chatButton"/>
+                    </div>
                 </div>
                 <div class="face three" id="three">
                 </div>
                 <div class="face four">
+                    <p>44444444444444444444444444444444</p>
                 </div>
-                <div class="face five">
+                <div class="face five" id="five">
                 </div>
                 <div class="face six">
+                    <p>6666666666666666666666</p>
                 </div>
             </div>
         </div>

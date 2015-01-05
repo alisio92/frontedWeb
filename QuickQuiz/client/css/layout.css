@@ -88,9 +88,11 @@ p {
 }
 #registration > #window > form > label,
 #registration > #window > form > fieldset {
+  float: left;
   margin-left: 5px;
   color: #ffffff;
   font-size: 16px;
+  width: 300px;
 }
 #registration > #window > form > fieldset {
   margin-top: 10px;
@@ -101,14 +103,39 @@ p {
   float: right;
   margin: -30px 10px 0px 0px;
 }
+#registration > #window > form > #formMessage {
+  color: red;
+}
+#adminForm > input,
+#adminForm label {
+  float: left;
+  width: 100%;
+}
+#joinMessage {
+  position: absolute;
+  left: 0px;
+  margin: 10px 0px 0px 10px;
+  background-color: #000000;
+  width: 300px;
+}
+#joinMessage > input {
+  width: 250px;
+  margin: 0px 0px 10px 25px;
+}
+#joinMessage > p {
+  margin-left: 5px;
+}
 #content {
   height: 1500px;
   margin-top: 45px;
 }
-#goToQueue {
+#goToQueue,
+#singleQueue {
   z-index: 1;
-  margin-top: 10px;
-  width: 90px;
+  margin: 10px 0px 0px 10px;
+  width: 140px;
+  float: left;
+  visibility: hidden;
 }
 #queue {
   background-color: #ffff00;
@@ -212,6 +239,34 @@ p {
   -moz-transform: rotateX(-90deg) rotate(180deg) translateZ(300px);
   transform: rotateX(-90deg) rotate(180deg) translateZ(300px);
 }
-.error {
+.error,
+#errorMessage {
   color: red;
+}
+#image,
+#myCanvas {
+  display: none;
+}
+#gameQuestion > input {
+  float: left;
+  width: 100%;
+}
+#chat {
+  float: left;
+  width: 200px;
+  height: 100%;
+  margin: -14px 0px 0px 40px;
+}
+#chat > #chatText {
+  padding-left: 10px;
+  height: 450px;
+  font-size: 12px;
+}
+footer {
+  margin-top: -40px;
+  width: 960px;
+}
+footer > nav > ul > li {
+  width: 200px;
+  float: left;
 }

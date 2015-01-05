@@ -1,17 +1,20 @@
-records in database invoegen
-wanneer client afsluit uit list halen
 background image
-admin pagina met records invoegen, kicken en gegevens opvragend
 angular
 opkuisen
-chat
-facebook
-user pagina, img toevoegen
+chat, deels
 specrunner
-uit server halen als user weg is
 awnsers buttons
-als speler wegvalt in game, game stoppen
 werkelijke game
+fieldsets
+title, alt
+validatie voor submit
+join message in register style
+geolocatie
+minify
+@color
+score
+leaderboard
+session
 
 //bugs
 text ziet er mottig uit door perspective
