@@ -17,6 +17,11 @@ var joinedQueueMessage = false;
 var questionIndex = -1;
 var hint = false;
 var playerName = "";
+var chatMessage = [];
+var map;
+var XLocation = 0;
+var YLocation = 0;
+var showHint = false;
 
 socket.on("serverMessage", function (json) {
     showMessage(JSON.parse(json));
@@ -120,9 +125,69 @@ socket.on("serverOnline", function (content) {
 socket.on("serverQuestionMessage", function (content) {
     generateGame(content);
 });
+socket.on("serverUpdateScoreMessage", function (content) {
+    var res = content.split(":");
+    var scores = "";
+    for(i=0;i<res.length;i++){
+        scores+= '<p>' + res[i] + '</p>';
+    }
+    document.getElementById("otherUsers").innerHTML = scores;
+});
 socket.on("serverGameInstanceMessage", function (content) {
     gameInstance = content;
 });
+socket.on("serverChatMessage", function (content) {
+    var res = content.split(":");
+    updateChat(res[0], res[1], res[2], res[3]);
+});
+socket.on("serverAdminGetGameMessage", function (content) {
+    var res = content.split(':');
+    setAdminScreen(res[0], res[1]);
+});
+socket.on("serverQuestionFinishedMessage", function (content) {
+    var res = content.split(":");
+    var scores = "";
+    for(i=0;i<res.length;i++){
+        scores+= '<p>' + res[i] + '</p>';
+    }
+    scores += '<button type="button" id="closeScore">X</button>';
+    document.getElementById("scoreMessage").innerHTML = scores;
+    document.getElementById("scoreMessage").style.visibility = "visible";
+    var rot = document.getElementById('cube').style[propTCP];
+    var xAngle = 0, yAngle = 0;
+    document.getElementById('cube').style[propTCP] = "rotateX(" + xAngle + "deg) rotateY(" + yAngle + "deg)";
+    var closeScore = document.getElementById("closeScore");
+    if(closeScore!=null) closeScore.addEventListener("click", clickcloseScore);
+    /*var goToQueue = document.getElementById("goToQueue");
+    if(goToQueue!=null) goToQueue.addEventListener("click", clickgoToQueue2);
+    var goToQueueSingle = document.getElementById("singleQueue");
+    if(goToQueueSingle!=null) goToQueueSingle.addEventListener("click", clickgoToQueueSingle2);
+    var chat = document.getElementById("chatButton");
+    if(chat!=null) chat.addEventListener("click", clickchat2);*/
+});
+function clickcloseScore(){
+    document.getElementById("scoreMessage").innerHTML = "";
+    document.getElementById("scoreMessage").style.visibility = "hidden";
+}
+function setAdminScreen(player, game){
+    var rot = document.getElementById('cube').style[propTCP];
+    var xAngle = 0, yAngle = 0;
+    yAngle += 90;
+    document.getElementById('cube').style[propTCP] = "rotateX(" + xAngle + "deg) rotateY(" + yAngle + "deg)";
+
+    var adminScreen = '';
+    adminScreen+= '<p>Aantal spelers: ' + player + '</p>';
+    if(game!="undefined") adminScreen+= '<p>Aantal games: ' + game + '</p>';
+    adminScreen+= '<input type="button" id="returnButton" value="Keer Terug"/>';
+    document.getElementById('five').innerHTML = adminScreen;
+    var returnButton = document.getElementById("returnButton");
+    if(returnButton!=null) returnButton.addEventListener("click", clickreturnButton);
+}
+function clickreturnButton(){
+    var rot = document.getElementById('cube').style[propTCP];
+    var xAngle = 0, yAngle = 0;
+    document.getElementById('cube').style[propTCP] = "rotateX(" + xAngle + "deg) rotateY(" + yAngle + "deg)";
+}
 function getQueuesFromServer() {
     socket.emit('clientQueuesMessage', true);
 }
@@ -176,7 +241,7 @@ function generateQueuesList(res) {
     if (join != null) join.addEventListener("click", clickJoingame);
 }
 function clickCreategame() {
-    createGame(2);
+    createGame(4);
 }
 function clickJoingame() {
     var join = document.getElementById("join");
@@ -193,13 +258,9 @@ function initButtons() {
     if (admin != null) admin.addEventListener("click", clickAdminWindow);
 }
 function clickAdminWindow() {
-    var rot = document.getElementById('cube').style[propTCP];
-    var xAngle = 0, yAngle = 0;
-    yAngle += 90;
-    document.getElementById('cube').style[propTCP] = "rotateX(" + xAngle + "deg) rotateY(" + yAngle + "deg)";
+    socket.emit('clientAdminGetGameMessage', true);
 
-
-    var adminView = "";
+    /*var adminView = "";
     adminView += '<div id="errorMessage"></div>';
     adminView += "<form method='post' id='adminForm'>";
     adminView += "<label for='fQuestion'>Vraag:</label>";
@@ -220,7 +281,7 @@ function clickAdminWindow() {
     adminView += "</form>";
     document.getElementById('five').innerHTML = adminView;
     var fButton = document.getElementById("fButton");
-    if (fButton != null) fButton.addEventListener("click", insert);
+    if (fButton != null) fButton.addEventListener("click", insert);*/
 }
 function insert() {
     var fQuestion = document.getElementById("fQuestion").value;
@@ -246,18 +307,55 @@ function readyGame() {
 }
 function generateGame(content) {
     joinedQueueMessage = false;
+    showHint = false;
     var res = content.split(":");
     questionIndex = res[0];
+    //document.getElementById("image").src = res[6];
+    XLocation = res[7];
+    YLocation = res[8];
     var game = "";
-    game += '<div id="gameQuestion">';
-    game += '<img src="' + res[6] + '" width="250px" height="250px"/>';
-    game += '<p>' + res[1] + '</p>';
-    game += '<input type="button" id="a1" value="' + res[2] + '"/>';
-    game += '<input type="button" id="a2" value="' + res[3] + '"/>';
-    game += '<input type="button" id="a3" value="' + res[4] + '"/>';
-    game += '<input type="button" id="a4" value="' + res[5] + '"/>';
-    game += '</div>';
-    document.getElementById("one").innerHTML = game;
+    game += '<canvas id="cnv">Your browser does not support the HTML5 canvas tag.</canvas>';
+    game += '<p>' + res[0] + ": " + res[1] + '</p>';
+    game += '<div class="questionItem" id="questionItem1"><img src="./images/red.png" width="25px" height="25px" title="' + res[2] + '" alt="' + res[2] + '"/> <p>' + res[2] + '</p></div>';
+    game += '<div class="questionItem" id="questionItem2"><img src="./images/red.png" width="25px" height="25px" title="' + res[3] + '" alt="' + res[3] + '"/> <p>' + res[3] + '</p></div>';
+    game += '<div class="questionItem" id="questionItem3"><img src="./images/red.png" width="25px" height="25px" title="' + res[4] + '" alt="' + res[4] + '"/> <p>' + res[4] + '</p></div>';
+    game += '<div class="questionItem" id="questionItem4"><img src="./images/red.png" width="25px" height="25px" title="' + res[5] + '" alt="' + res[5] + '"/> <p>' + res[5] + '</p></div>';
+    game += '<div id="hint"><button type="button" id="hintButton">Hint</button></div>';
+    document.getElementById("gameQuestion").innerHTML = game;
+    changeColor(res[6]);
+    var questionItem1 = document.getElementById("questionItem1");
+    if(questionItem1!=null) questionItem1.addEventListener("click", clickquestionItem1);
+    var questionItem2 = document.getElementById("questionItem2");
+    if(questionItem2!=null) questionItem2.addEventListener("click", clickquestionItem2);
+    var questionItem3 = document.getElementById("questionItem3");
+    if(questionItem3!=null) questionItem3.addEventListener("click", clickquestionItem3);
+    var questionItem4 = document.getElementById("questionItem4");
+    if(questionItem4!=null) questionItem4.addEventListener("click", clickquestionItem4);
+    var hintButton = document.getElementById("hintButton");
+    if(hintButton!=null) hintButton.addEventListener("click", clickhintButton);
+    if(!showHint){
+        document.getElementById("map-canvas").innerHTML = "";
+        document.getElementById("map-canvas").style.visibility = "hidden";
+        document.getElementById("map-canvas").style.backgroundColor = "transparent";
+    }
+}
+function clickquestionItem1(){
+    socket.emit('clientNextQuestionMessage', playerName + ":" + gameInstance + ":" + questionIndex + ":" + 0);
+}
+function clickquestionItem2(){
+    socket.emit('clientNextQuestionMessage', playerName + ":" + gameInstance + ":" + questionIndex + ":" + 1);
+}
+function clickquestionItem3(){
+    socket.emit('clientNextQuestionMessage', playerName + ":" + gameInstance + ":" + questionIndex + ":" + 2);
+}
+function clickquestionItem4(){
+    socket.emit('clientNextQuestionMessage', playerName + ":" + gameInstance + ":" + questionIndex + ":" + 3);
+}
+function clickhintButton(){
+    showHint = true;
+    document.getElementById("map-canvas").style.visibility = "visible";
+    document.getElementById("map-canvas").style.backgroundColor = "#ffffff";
+    initialize();
 }
 function showJoinMessage() {
     if (joinedQueueMessage) {
@@ -283,3 +381,116 @@ function startGame() {
     socket.emit('clientStartGameMessage', playerId + ":" + gameInstance);
     joinedQueue = true;
 }
+function sendChatMessage(chat){
+    var d = new Date();
+    var h = d.getHours();
+    var m = d.getMinutes();
+    socket.emit('clientChatMessage', playerName + ":" + h + ":" + m + ":" + chat);
+}
+function updateChat(name, hour, minute, message){
+    chatMessage.push(name + " " + hour + ":" + minute);
+    chatMessage.push(message);
+
+    var chatNew = "";
+    var start = 0;
+    if(chatMessage.length>24) start = chatMessage.length-22;
+    for(i = start; i < chatMessage.length;i++){
+        chatNew += '<p>' + chatMessage[i] + '</p>';
+    }
+
+    document.getElementById("chatText").innerHTML = chatNew;
+}
+function changeColor(photo){
+    var canvas = document.getElementById('cnv');
+    var ctx = canvas.getContext('2d');
+    var width = 250;
+    var height = 250;
+    canvas.width = width;
+    canvas.height = height;
+    ctx.drawImage(image, 0, 0, width, height);
+    var imageData = ctx.getImageData(0, 0, width, height);
+    var pixelData = imageData.data;
+    var bytesPerPixel = 4;
+    for(var y = 0; y < height; y++) {
+        for(var x = 0; x < width; x++) {
+            if(y < height) {
+                var startIdx = (y * bytesPerPixel * width) + (x * bytesPerPixel);
+                var red = pixelData[startIdx];
+                var green = pixelData[startIdx + 1];
+                var blue = pixelData[startIdx + 2];
+                var grayScale = (red * 0.3) + (green * 0.59) + (blue * .11);
+                pixelData[startIdx] = grayScale;
+                pixelData[startIdx + 1] = grayScale;
+                pixelData[startIdx + 2] = grayScale;
+            }
+        }
+    }
+    ctx.putImageData(imageData, 0, 0);
+    image.src = "./images/" + photo;
+}
+function initialize() {
+    var mapOptions = {
+        zoom: 6
+    };
+    map = new google.maps.Map(document.getElementById('map-canvas'),
+        mapOptions);
+
+    // Try HTML5 geolocation
+    if(navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            var pos = new google.maps.LatLng(XLocation, YLocation);
+
+            var infowindow = new google.maps.InfoWindow({
+                map: map,
+                position: pos,
+                content: 'Location found using HTML5.'
+            });
+
+            map.setCenter(pos);
+        }, function() {
+            handleNoGeolocation(true);
+        });
+    } else {
+        // Browser doesn't support Geolocation
+        handleNoGeolocation(false);
+    }
+}
+function handleNoGeolocation(errorFlag) {
+    if (errorFlag) {
+        var content = 'Error: The Geolocation service failed.';
+    } else {
+        var content = 'Error: Your browser doesn\'t support geolocation.';
+    }
+
+    var options = {
+        map: map,
+        position: new google.maps.LatLng(60, 105),
+        content: content
+    };
+
+    var infowindow = new google.maps.InfoWindow(options);
+    map.setCenter(options.position);
+}
+function clickchat2(){
+    if(registeredPlayer){
+        var chat = document.getElementById("chatinput").value;
+        if(chat.length<100 && chat.length>0){
+            sendChatMessage(chat);
+            document.getElementById("chatinput").value = "";
+        }
+        else{
+
+        }
+    }
+}
+function clickgoToQueueSingle2(){
+    if (registeredPlayer) {
+        createGame(1);
+    }
+}
+function clickgoToQueue2() {
+    if (registeredPlayer) {
+        getQueuesFromServer();
+    }
+}
+//google.maps.event.addDomListener(window, 'load', initialize);

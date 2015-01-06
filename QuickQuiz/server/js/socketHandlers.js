@@ -40,7 +40,10 @@ function updateTimer() {
     for (i = 0; i < game.games.length; i++) {
         if (!game.games[i].playing && game.checkEveryoneJoined(i)) {
             if (game.games[i].timer > 0) game.games[i].timer--;
-            else game.removeGame(games[i]);
+            else {
+                resetArray(instance);
+                game.removeGame(games[i]);
+            }
         }
     }
 }
@@ -55,15 +58,16 @@ function checkIfPlayersAreOnline() {
             }
         }
     }
+    var socket = "";
     for (i = 0; i < onlinePlayers.length; i++) {
-        var socket = onlinePlayers[i].socket;
+        socket = onlinePlayers[i].socket;
         socket.emit('serverOnline', true);
+        socket.broadcast.emit('serverGiveNumberUsers', player.players.length);
         var p = player.getPlayerById(onlinePlayers[i].id);
         if (typeof player.players[p.id] !== 'undefined') {
             player.players[p.id].online = false;
         }
     }
-    socket.broadcast.emit('serverGiveNumberUsers', player.players.length);
 }
 function retrievedMessage(socket) {
     socket.on('clientMessage', function (content) {
@@ -83,6 +87,14 @@ function retrievedMessage(socket) {
     socket.on('clientInsertMessage', function (content) {
         var res = content.split(":");
         insert(socket, res[0], res[1], res[2], res[3], res[4], res[5], res[6]);
+    });
+    socket.on('clientChatMessage', function (content) {
+        var res = content.split(":");
+        sendChatMessage(res[0], res[1], res[2], res[3]);
+    });
+    socket.on('clientNextQuestionMessage', function (content) {
+        var res = content.split(":");
+        controleAntwoord(socket, res[0], res[1], res[2], res[3]);
     });
     socket.on('clientGetNumberUsers', function (content) {
         socket.emit('serverGiveNumberUsers', serverQuiz.players.length);
@@ -109,6 +121,9 @@ function retrievedMessage(socket) {
     socket.on('clientJoinGameMessage', function (content) {
         var res = content.split(":");
         joinQueue(socket, res[0], res[1], res[2]);
+    });
+    socket.on('clientAdminGetGameMessage', function (content) {
+        socket.emit('serverAdminGetGameMessage', player.players.length + ":" + game.games.length);
     });
     socket.on('clientStartGameMessage', function (content) {
         var res = content.split(":");
@@ -152,7 +167,7 @@ function addToReady(socket, id, instance) {
 }
 function joinQueue(socket, id, name, instance) {
     var p = player.getPlayerByName(name);
-    if (!game.checkIfPlayerIsPlayingById(id)) {
+    if (!game.checkIfPlayerIsPlayingById(p.id)) {
         game.joinPlayerToGame(p, instance);
         game.addPlayerPlaying(p);
     }
@@ -162,20 +177,21 @@ function joinQueue(socket, id, name, instance) {
     }
     socket.broadcast.emit('serverQueuesMessage', message);
     socket.emit('serverQueuesMessage', message);
-    if(game.games[instance].amount>1){
-        var fullQueue = game.checkIfQueueIsFull(instance);
-        if (fullQueue) {
-            var SocketsPlayers = game.getSocketsPlayers(instance);
-            for (i = 0; i < SocketsPlayers.length; i++) {
-                if (typeof SocketsPlayers[i] !== 'undefined') {
-                    SocketsPlayers[i].socket.emit('serverQueueIsFullMessage', true);
+    if(typeof game.games[instance] !== 'undefined') {
+        if (game.games[instance].amount > 1) {
+            var fullQueue = game.checkIfQueueIsFull(instance);
+            if (fullQueue) {
+                var SocketsPlayers = game.getSocketsPlayers(instance);
+                for (i = 0; i < SocketsPlayers.length; i++) {
+                    if (typeof SocketsPlayers[i] !== 'undefined') {
+                        SocketsPlayers[i].socket.emit('serverQueueIsFullMessage', true);
+                    }
                 }
             }
+        } else {
+            socket.emit('serverSinglePlayer', true);
         }
-    }else{
-        socket.emit('serverSinglePlayer', true);
     }
-
 }
 function startQueue(socket, id, instance) {
     var p = player.getPlayerById(id);
@@ -197,8 +213,6 @@ function startQueue(socket, id, instance) {
     }
 }
 function getQuestion(instance, index) {
-    //var question = 'http://pcoe.nl/@api/deki/files/6/=Gebouw_1.jpg';
-    //var answer = "";
     var row = index + 1;
     var SocketsPlayers = game.getSocketsPlayers(instance);
     var question = game.games[instance].questions[index];
@@ -264,6 +278,63 @@ function removePlayer(socket, id, name) {
         socket.emit('serverLogoutMessage', true);
     }
     else socket.emit('serverLogoutMessage', false);
+}
+function sendChatMessage(name, hour, minute, message){
+    for(i = 0; i<player.players.length;i++){
+        if(typeof player.players[i] !== 'undefined') {
+            if (player.players[i].name != null) {
+                player.players[i].socket.emit('serverChatMessage', name + ":" + hour + ":" + minute + ":" + message);
+            }
+        }
+    }
+}
+function controleAntwoord(socket, name, instance, index, answer){
+    var id = index-1;
+    if(typeof game.games[instance] !== 'undefined') {
+        var a = game.games[instance].questions[id];
+        if (a.correct == answer) {
+            var p = player.getPlayerByName(name);
+            p.score++;
+        }
+    }
+    if(index<10) {
+        if(typeof game.games[instance] !== 'undefined') {
+            var row = Number(index)+1;
+            var question = game.games[instance].questions[index];
+            socket.emit('serverQuestionMessage', row + ":" + question.question + ":" + question.option1 + ":" + question.option2 + ":" + question.option3 + ":" + question.option4 + ":" + question.img + ":" + question.xLoc + ":" + question.yLoc);
+            for (i2 = 0; i2 < game.games[instance].players.length; i2++) {
+                var p = game.games[instance].players[i2];
+                var scores = "";
+                for (i = 0; i < game.games[instance].players.length; i++) {
+                    var pl = game.games[instance].players[i];
+                    scores += pl.name + ":" + pl.score + ":";
+                }
+                p.socket.emit('serverUpdateScoreMessage', scores);
+            }
+        }
+    }
+    else{
+        var scores = "";
+        var p = player.getPlayerByName(name);
+        for(i=0; i< game.games[instance].players.length;i++){
+            var pl = game.games[instance].players[i];
+            scores+= pl.name + ":" + pl.score + ":";
+        }
+        for(i2=0;i2<game.games[instance].players.length;i2++) {
+            var p = game.games[instance].players[i2];
+            p.socket.emit('serverQuestionFinishedMessage', scores);
+        }
+        resetArray(instance);
+        game.removeGame(instance);
+    }
+}
+function resetArray(instance){
+    for(i = 0;i<game.games[instance].players.length;i++){
+        var p = game.games[instance].players[i];
+        database.updateUser(p);
+        game.removePlayerFromGame(p);
+    }
+    database.updateUsers();
 }
 
 module.exports.getHandlers = getHandlers;

@@ -44,9 +44,29 @@ var Database = (function () {
         fs.appendFile(filePath2, Question.questions.length-1 + ":" + question.question + ":" + question.option1 + ":" + question.option2 + ":" + question.option3 + ":" + question.option4 + ":" + question.correct + ":" + question.img + ":" + question.xLoc + ":" + question.yLoc + ";", function (err) {
         });
     };
+    var updateUser = function(p) {
+        for(i = 0;i<User.users.length;i++){
+            if(User.users[i].name == p.name) User.users[i].score += p.score;
+        }
+    };
+    var updateUsers = function(){
+        var u = "";
+        for(i = 0; i < User.users.length;i++){
+            //d, name, rank, password, img, score
+            u+= User.users[i].id + ":" + User.users[i].name + ":" + User.users[i].rank + ":" + User.users[i].password + ":" + User.users[i].img + ":" + User.users[i].score + ";";
+        }
+        fs.writeFile(filePath, u, function(err) {
+            if(err) {
+                console.log(err);
+            } else {
+            }
+        });
+    };
     return {
         init: init,
         addUser: addUser,
+        updateUsers: updateUsers,
+        updateUser: updateUser,
         addQuestion: addQuestion
     };
 })();

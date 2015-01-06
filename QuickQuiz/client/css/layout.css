@@ -17,11 +17,11 @@ svg {
 #wrapper {
   margin: auto;
   padding: auto;
-  width: 960px;
-  background-color: #660000;
+  width: 965px;
+  background-color: #323232;
 }
 body {
-  background-color: #0055bb;
+  background-color: #999999;
   font-size: 12px;
   color: white;
   font-family: arial, sans-serif;
@@ -125,9 +125,32 @@ p {
 #joinMessage > p {
   margin-left: 5px;
 }
+#scoreMessage {
+  position: absolute;
+  left: 0px;
+  margin: 10px 0px 0px 10px;
+  background-color: #000000;
+  width: 300px;
+  height: 50px;
+  visibility: hidden;
+}
+#scoreMessage > p {
+  float: left;
+  width: 145px;
+  padding-left: 5px;
+}
+#closeScore {
+  width: 25px;
+  height: 25px;
+  float: left;
+  margin: 0px 0px 0px 265px;
+}
 #content {
   height: 1500px;
   margin-top: 45px;
+}
+#QueuesUser {
+  width: 200px;
 }
 #goToQueue,
 #singleQueue {
@@ -251,16 +274,90 @@ p {
   float: left;
   width: 100%;
 }
-#chat {
-  float: left;
+#gameQuestion > p {
+  margin-top: 10px;
+}
+#gameQuestion > #hint {
+  margin: -160px 0px 0px 200px;
+}
+#gameQuestion > #hint > button {
+  width: 50px;
+}
+#gameQuestion > #hint > button:hover {
+  cursor: pointer;
+}
+#gameQuestion > .questionItem {
   width: 200px;
-  height: 100%;
-  margin: -14px 0px 0px 40px;
+  height: 25px;
+  margin-top: 10px;
+}
+#gameQuestion > .questionItem > img,
+#gameQuestion > .questionItem > p,
+#gameQuestion > .questionItem > canvas {
+  float: left;
+}
+#gameQuestion > .questionItem > img,
+#gameQuestion > .questionItem > canvas {
+  width: 25px;
+}
+#gameQuestion > .questionItem > p {
+  width: 175px;
+  padding-top: 5px;
+}
+#gameQuestion > .questionItem:hover {
+  cursor: pointer;
+}
+#otherUsers {
+  width: 200px;
+  float: right;
+  margin-top: -120px;
+}
+#otherUsers > p {
+  width: 100px;
+  float: left;
+}
+#map-canvas {
+  width: 250px;
+  height: 250px;
+  float: right;
+  margin-top: -390px;
+}
+#chat {
+  float: right;
+  width: 280px;
+  height: 495px;
+  margin: -80px 0px 0px 0px;
+  background-color: #000000;
+  border-color: #ffffff;
+  border-width: 1px;
+  border-style: solid;
 }
 #chat > #chatText {
-  padding-left: 10px;
+  padding: 10px 0px 0px 10px;
+  border: none;
+  background-color: #000000;
+  border-bottom-color: #ffffff;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  color: #ffffff;
+  resize: none;
+  width: 268px;
   height: 450px;
   font-size: 12px;
+}
+#chat > #chatText p:nth-of-type(even) {
+  margin-bottom: 5px;
+}
+#chat > #chatinput {
+  width: 220px;
+  margin: 5px 0px 0px 10px;
+  height: 15px;
+}
+#chat > #chatinput > p {
+  width: 210px;
+}
+#lRMessage {
+  width: 250px;
 }
 footer {
   margin-top: -40px;

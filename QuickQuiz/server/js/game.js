@@ -11,7 +11,7 @@ var Game = (function () {
     var playersPlaying = new Array();
 
     var init = function (player, amount) {
-        if(id < max) id++;
+        if(id < max) id = games.length;
         else return false;
         var playersList = new Array();
         playersList.push(player);
@@ -67,9 +67,12 @@ var Game = (function () {
         var aantal = 10;
         var numbers = [];
         for(i = 0; i < aantal;i++){
-            var index = Math.floor((Math.random() * Question.questions.length-1));
-            while(numbers.indexOf(index)>=0){
-                index = Math.floor((Math.random() * Question.questions.length-1));
+            var index = -1;
+            while(index<0){
+                index = Math.floor((Math.random() * Question.questions.length));
+                for(i2 = 0; i2<numbers.length;i2++){
+                    if(index == numbers[i2]) index = -1;
+                }
             }
             numbers.push(index);
             questions.push(Question.questions[index]);
@@ -134,7 +137,10 @@ var Game = (function () {
         return id;
     };
     var removePlayerFromGame = function(player){
-        var index = playersPlaying.indexOf(player);
+        var index = -1;
+        for(n = 0;n<playersPlaying.length;n++){
+            if(playersPlaying[n].name== player.name) index = n;
+        }
         if(index >=0) {
             playersPlaying.splice(index, 1);
             for(i = 0; i < games.length;i++){

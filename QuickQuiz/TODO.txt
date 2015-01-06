@@ -1,23 +1,21 @@
 background image
 angular
 opkuisen
-chat, deels
-specrunner
-awnsers buttons
-werkelijke game
 fieldsets
 title, alt
 validatie voor submit
 join message in register style
-geolocatie
 minify
-@color
-score
 leaderboard
 session
 
+specrunner
+
 //bugs
 text ziet er mottig uit door perspective
+game 2de keer
 
 //vragen
 join
+
+0:alisio:0:123456::0;1:bob:1:123::0;2:jan:1:aaaaaa::0;3:joris:1:bbbbbb::0;4:derp:1:rrrrrr::01:vraag:1:2:3:4:0:img;5:testje:1:123456::0;

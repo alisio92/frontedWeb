@@ -17,25 +17,28 @@
 </header>
 <div id="registration"></div>
 <div id="joinMessage"></div>
+<div id="scoreMessage"></div>
 <div id="wrapper">
     <div id="content">
-        <img id="image" src="/images/0.jpg">
-        <canvas id="myCanvas" style="border:1px solid #d3d3d3;">
-            Your browser does not support the HTML5 canvas tag.
-        </canvas>
+        <img id="image" src="./images/0.jpg"/>
         <div id="experiment">
             <div id="cube">
                 <div class="face one" id="one">
+                    <div id="gameQuestion">
+                    </div>
+                    <div id="otherUsers">
+                    </div>
+                    <div id="map-canvas"></div>
                 </div>
                 <div class="face two">
-                    <p>Je moet eerst inloggen of registreren om te kunnen spelen.</p>
-                    <p id="singleQueue" class="pButton">Single Player</p>
-                    <p id="goToQueue" class="pButton">Multi Player</p>
+                    <p id="lRMessage">Je moet eerst inloggen of registreren om te kunnen spelen.</p>
+                    <div id="QueuesUser">
+                        <p id="singleQueue" class="pButton">Single Player</p>
+                        <p id="goToQueue" class="pButton">Multi Player</p>
+                    </div>
                     <div id="chat">
-                        <textarea id="chatText" readonly>
-                            At w3schools.com you will learn how to make a website.
-                            We offer free tutorials in all web development technologies.
-                        </textarea>
+                        <div id="chatText" readonly>
+                        </div>
                         <input type="text" id="chatinput"/>
                         <input type="button" value="send" id="chatButton"/>
                     </div>
@@ -61,6 +64,7 @@
         </nav>
     </footer>
 </div>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 <script src="js/jquery-2.1.1.min.js"></script>
 <script src="js/modernizr.js"></script>
 <script src="../socket.io/socket.io.js"></script>

@@ -13,7 +13,7 @@ var localMaps = {
     ".js": "./../../client/js/",
     ".png": "./../../client/images/",
     ".gif": "./../../../client/",
-    ".jpg": "./../../client/",
+    ".jpg": "./../../client/images/",
     ".woff": "./../../fonts/",
     ".ttf": "./../../fonts/",
     ".ico": "./../../client/"

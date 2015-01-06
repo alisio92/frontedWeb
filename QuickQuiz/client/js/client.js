@@ -4,10 +4,6 @@
 document.addEventListener("DOMContentLoaded", init);
 var showLogin = false;
 var showRegister = false;
-var originalPixels = null;
-var currentPixels = null;
-var canvas = document.getElementById('myCanvas');
-var ctx = canvas.getContext("2d");
 var props = 'transform WebkitTransform MozTransform OTransform msTransform'.split(' '),
     prop,
     el = document.createElement('div');
@@ -24,40 +20,25 @@ function init() {
     var login = document.getElementById("login");
     login.addEventListener("click", clickLoginWindow);
     var goToQueue = document.getElementById("goToQueue");
-    goToQueue.addEventListener("click", clickgoToQueue);
+    if(goToQueue!=null) goToQueue.addEventListener("click", clickgoToQueue);
     var goToQueueSingle = document.getElementById("singleQueue");
-    goToQueueSingle.addEventListener("click", clickgoToQueueSingle);
+    if(goToQueueSingle!=null) goToQueueSingle.addEventListener("click", clickgoToQueueSingle);
+    var chat = document.getElementById("chatButton");
+    if(chat!=null) chat.addEventListener("click", clickchat);
     fadeOutAnimation();
-    //changeColor();
     propTCP = prop;
 }
-function changeColor(){
-    var canvas = document.getElementById('myCanvas');
-    var ctx = canvas.getContext('2d');
-    var width = image.width;
-    var height = image.height;
-    canvas.width = width;
-    canvas.height = height;
-    ctx.drawImage(image, 0, 0);
-    var imageData = ctx.getImageData(0, 0, width, height);
-    var pixelData = imageData.data;
-    var bytesPerPixel = 4;
-    for(var y = 0; y < height; y++) {
-        for(var x = 0; x < width; x++) {
-            if(y < height/2) {
-                var startIdx = (y * bytesPerPixel * width) + (x * bytesPerPixel);
-                var red = pixelData[startIdx];
-                var green = pixelData[startIdx + 1];
-                var blue = pixelData[startIdx + 2];
-                var grayScale = (red * 0.3) + (green * 0.59) + (blue * .11);
-                pixelData[startIdx] = grayScale;
-                pixelData[startIdx + 1] = grayScale;
-                pixelData[startIdx + 2] = grayScale;
-            }
+function clickchat(){
+    if(registeredPlayer){
+        var chat = document.getElementById("chatinput").value;
+        if(chat.length<100 && chat.length>0){
+            sendChatMessage(chat);
+            document.getElementById("chatinput").value = "";
+        }
+        else{
+
         }
     }
-    ctx.putImageData(imageData, 0, 0);
-    image.src = "nature.jpg";
 }
 function clickgoToQueueSingle(){
     if (registeredPlayer) {
