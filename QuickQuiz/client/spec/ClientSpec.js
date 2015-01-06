@@ -3,18 +3,21 @@
  */
 //naam van de suite, javescript functie met de run
 describe("Client test", function () {
-    var client;
     beforeEach(function () {
-        client = new client();
         //jasmine.addMatchers(customMatcher);
     });
 
     //of calc een bestaande obj is
-    it("should be a Server", function () {
-        expect(client).toBeDefined();
+    /*it("should be a Server", function () {
+        expect(init).toBeDefined();
         //expect typeof
-    });
+    });*/
 
+    describe("init", function() {
+        it("says hello", function() {
+            expect(init()).toEqual("Hello world!");
+        });
+    });
     /*it("should be able to add 1 + 1", function(){
      //var calculator = new Calculator();
      expect(calculator.add(1,1)).toBe(2);

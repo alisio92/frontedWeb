@@ -242,6 +242,8 @@ p {
   -moz-transform-style: preserve-3d;
   transition: transform 2s linear;
   transform-style: preserve-3d;
+  transition-timing-function: linear;
+  transition-delay: 2s;
 }
 
 .face {
@@ -258,36 +260,42 @@ p {
   -webkit-transform: rotateX(90deg) translateZ(300px);
   -moz-transform: rotateX(90deg) translateZ(300px);
   transform: rotateX(90deg) translateZ(300px);
+  -ms-transform: rotateX(90deg) translateZ(300px);
 }
 
 #cube .two {
   -webkit-transform: translateZ(300px);
   -moz-transform: translateZ(300px);
   transform: translateZ(300px);
+  -ms-transform: translateZ(300px);
 }
 
 #cube .three {
   -webkit-transform: rotateY(90deg) translateZ(300px);
   -moz-transform: rotateY(90deg) translateZ(300px);
   transform: rotateY(90deg) translateZ(300px);
+  -ms-transform: rotateY(90deg) translateZ(300px);
 }
 
 #cube .four {
   -webkit-transform: rotateY(180deg) translateZ(300px);
   -moz-transform: rotateY(180deg) translateZ(300px);
   transform: rotateY(180deg) translateZ(300px);
+  -ms-transform: rotateY(180deg) translateZ(300px);
 }
 
 #cube .five {
   -webkit-transform: rotateY(-90deg) translateZ(300px);
   -moz-transform: rotateY(-90deg) translateZ(300px);
   transform: rotateY(-90deg) translateZ(300px);
+  -ms-transform: rotateY(-90deg) translateZ(300px);
 }
 
 #cube .six {
   -webkit-transform: rotateX(-90deg) rotate(180deg) translateZ(300px);
   -moz-transform: rotateX(-90deg) rotate(180deg) translateZ(300px);
   transform: rotateX(-90deg) rotate(180deg) translateZ(300px);
+  -ms-transform: rotateX(-90deg) rotate(180deg) translateZ(300px);
 }
 
 .error, #errorMessage{
@@ -341,7 +349,7 @@ display: none;
     float: left;
   }
 }
-#map-canvas{
+#mapCanvas{
   width: 250px;
   height: 250px;
   float: right;

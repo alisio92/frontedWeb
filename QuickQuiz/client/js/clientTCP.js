@@ -1,7 +1,7 @@
 /**
  * Created by alisio on 30/11/2014.
  */
-var socket = io.connect("http://192.168.1.2:4000");
+var socket = io.connect("http://localhost:4000");
 var inpClient = document.getElementById('name');
 var messages = document.getElementById('messages');
 var btn = document.getElementById('send');
@@ -334,9 +334,9 @@ function generateGame(content) {
     var hintButton = document.getElementById("hintButton");
     if(hintButton!=null) hintButton.addEventListener("click", clickhintButton);
     if(!showHint){
-        document.getElementById("map-canvas").innerHTML = "";
-        document.getElementById("map-canvas").style.visibility = "hidden";
-        document.getElementById("map-canvas").style.backgroundColor = "transparent";
+        document.getElementById("mapCanvas").innerHTML = "";
+        document.getElementById("mapCanvas").style.visibility = "hidden";
+        document.getElementById("mapCanvasmap-canvas").style.backgroundColor = "transparent";
     }
 }
 function clickquestionItem1(){
@@ -353,8 +353,8 @@ function clickquestionItem4(){
 }
 function clickhintButton(){
     showHint = true;
-    document.getElementById("map-canvas").style.visibility = "visible";
-    document.getElementById("map-canvas").style.backgroundColor = "#ffffff";
+    document.getElementById("mapCanvas").style.visibility = "visible";
+    document.getElementById("mapCanvas").style.backgroundColor = "#ffffff";
     initialize();
 }
 function showJoinMessage() {
@@ -432,7 +432,8 @@ function initialize() {
     var mapOptions = {
         zoom: 6
     };
-    map = new google.maps.Map(document.getElementById('map-canvas'),
+    var m = document.getElementById('mapCanvas');
+    map = new google.maps.Map(m,
         mapOptions);
 
     // Try HTML5 geolocation
